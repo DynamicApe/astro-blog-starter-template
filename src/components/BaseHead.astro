@@ -45,3 +45,24 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<script is:inline>
+    (function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
+        src: "https://rdrect-usa1.mkt.dynamics.com/webtracking/WebTracking/WebTracking.bundle.js",
+        name: "MSCI",
+        cfg: {
+            ingestionKey: "d18da7025e3b4052950e864adbaae31b-05ddea77-9de1-4783-845c-759c643d63fc-6860",
+            endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
+            autoCapture: { view: true, click: true },
+            orgInfo: {
+                orgId: "77112c4b-6845-f111-b31f-000d3a5c991b",
+                orgTenantId: "4ac2f5dd-b65b-43ba-aac8-4b350eb60ab0",
+                orgGeo: "USA"
+            }
+        }
+    });
+    (function() {
+        var ctx = new URLSearchParams(window.location.search).get('msdynmkt_trackingcontext');
+        if (ctx) { window.MSCI.setProperty('msdynmkt_trackingcontext', ctx); }
+    })();
+</script>
