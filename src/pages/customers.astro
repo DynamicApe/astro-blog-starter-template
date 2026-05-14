@@ -1,0 +1,354 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const stories = [
+	{
+		company: "Contoso Retail",
+		industry: "Retail & E-commerce",
+		logo: "CR",
+		color: "#0078D4",
+		quote: "Customer Insights helped us unify 14 million customer records across 8 countries in under 6 weeks. Our email campaigns now drive 3× more revenue.",
+		author: "Emma Hartley",
+		role: "VP of Marketing",
+		stats: [{ val: "3×", label: "Email Revenue" }, { val: "14M", label: "Unified Profiles" }, { val: "6 wks", label: "Time to Value" }]
+	},
+	{
+		company: "Fabrikam Financial",
+		industry: "Financial Services",
+		logo: "FF",
+		color: "#7B61FF",
+		quote: "We reduced customer churn by 28% in the first quarter by acting on CI's churn prediction scores before customers even thought about leaving.",
+		author: "James Okafor",
+		role: "Chief Data Officer",
+		stats: [{ val: "28%", label: "Churn Reduction" }, { val: "91%", label: "Model Accuracy" }, { val: "2×", label: "CLTV Growth" }]
+	},
+	{
+		company: "Northwind Healthcare",
+		industry: "Healthcare",
+		logo: "NH",
+		color: "#00B7C3",
+		quote: "Patient engagement scores jumped 40% after we started using CI's real-time triggers to send personalized reminders and follow-ups.",
+		author: "Dr. Sarah Lim",
+		role: "Director of Patient Experience",
+		stats: [{ val: "40%", label: "Engagement Lift" }, { val: "99.9%", label: "HIPAA Compliant" }, { val: "12 min", label: "Avg Setup Time" }]
+	},
+	{
+		company: "Adventure Works",
+		industry: "Manufacturing & B2B",
+		logo: "AW",
+		color: "#00AD56",
+		quote: "For the first time, our sales team has a complete 360° view of every account — combining CRM, ERP, and support data in one place.",
+		author: "Carlos Mendez",
+		role: "SVP Sales Operations",
+		stats: [{ val: "360°", label: "Account View" }, { val: "45%", label: "Faster Deals" }, { val: "8 sys", label: "Data Sources" }]
+	},
+	{
+		company: "Tailspin Travels",
+		industry: "Travel & Hospitality",
+		logo: "TT",
+		color: "#FF8C00",
+		quote: "Hyper-personalized offers powered by Customer Insights increased our upsell revenue by 52% and NPS jumped 18 points in two quarters.",
+		author: "Mia Johansson",
+		role: "Head of Digital CX",
+		stats: [{ val: "52%", label: "Upsell Revenue" }, { val: "+18", label: "NPS Points" }, { val: "1.2M", label: "Active Segments" }]
+	},
+	{
+		company: "Lucerne Publishing",
+		industry: "Media & Subscriptions",
+		logo: "LP",
+		color: "#D83B01",
+		quote: "We went from a 6-month data project to live insights in 3 weeks. CI's pre-built connectors for our CMS and subscription platform saved months of engineering work.",
+		author: "Daniel Park",
+		role: "Product Analytics Lead",
+		stats: [{ val: "3 wks", label: "Go-Live" }, { val: "67%", label: "Retention Gain" }, { val: "250+", label: "Connectors Used" }]
+	}
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Customer Stories — Dynamics 365 Customer Insights"
+			description="See how leading enterprises use Dynamics 365 Customer Insights to unify data, reduce churn, and deliver personalized experiences at scale."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+
+			<!-- Hero -->
+			<section class="page-hero">
+				<div class="container">
+					<span class="section-tag">Customer Stories</span>
+					<h1>Real results from real companies</h1>
+					<p>From global retailers to healthcare providers, see how organizations use Customer Insights to transform their customer relationships.</p>
+					<div class="hero-stats">
+						<div class="hs">
+							<strong>10,000+</strong>
+							<span>Companies worldwide</span>
+						</div>
+						<div class="hs-sep"></div>
+						<div class="hs">
+							<strong>40%</strong>
+							<span>Average retention increase</span>
+						</div>
+						<div class="hs-sep"></div>
+						<div class="hs">
+							<strong>3×</strong>
+							<span>Average ROI in year one</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Stories grid -->
+			<section class="stories-section">
+				<div class="container">
+					<div class="stories-grid">
+						{stories.map(s => (
+							<div class="story-card">
+								<div class="story-header">
+									<div class="story-logo" style={`background:${s.color}22;color:${s.color}`}>{s.logo}</div>
+									<div>
+										<div class="story-company">{s.company}</div>
+										<div class="story-industry">{s.industry}</div>
+									</div>
+								</div>
+								<blockquote class="story-quote">"{s.quote}"</blockquote>
+								<div class="story-author">
+									<div class="author-avatar" style={`background:${s.color}`}>{s.author.charAt(0)}</div>
+									<div>
+										<div class="author-name">{s.author}</div>
+										<div class="author-role">{s.role}, {s.company}</div>
+									</div>
+								</div>
+								<div class="story-stats">
+									{s.stats.map(st => (
+										<div class="story-stat">
+											<div class="ss-val">{st.val}</div>
+											<div class="ss-label">{st.label}</div>
+										</div>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- Testimonial highlight -->
+			<section class="highlight-section">
+				<div class="container">
+					<div class="highlight-card">
+						<div class="highlight-quote-mark">"</div>
+						<p class="highlight-text">Customer Insights is not just a technology investment — it's a competitive advantage. Within six months we had a complete, real-time view of every customer, and our teams could finally stop guessing and start knowing.</p>
+						<div class="highlight-author">
+							<div class="ha-avatar" style="background:linear-gradient(135deg,#0078D4,#7B61FF)">RV</div>
+							<div>
+								<div class="ha-name">Rachel Vance</div>
+								<div class="ha-role">Chief Customer Officer, Global Enterprise Client</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="customers-cta">
+				<div class="container">
+					<h2>Your success story starts here</h2>
+					<p>Talk to a Customer Insights expert and see how other companies in your industry are achieving measurable results.</p>
+					<a href="/get-demo" class="btn-primary btn-lg">Book a Free Demo</a>
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+.page-hero {
+	background: linear-gradient(160deg, #0B1A2E 0%, #0F2645 100%);
+	padding: 5rem 0 4rem;
+	text-align: center;
+}
+.page-hero .section-tag { margin-bottom: 1rem; }
+.page-hero h1 { color: white; font-size: 2.8rem; margin-bottom: 1rem; }
+.page-hero p {
+	color: rgba(255,255,255,0.65);
+	font-size: 1.05rem;
+	max-width: 540px;
+	margin: 0 auto 2.5rem;
+}
+.hero-stats {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+.hs { text-align: center; }
+.hs strong {
+	display: block;
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--ci-cyan);
+}
+.hs span { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+.hs-sep {
+	width: 1px;
+	height: 40px;
+	background: rgba(255,255,255,0.12);
+}
+
+.stories-section {
+	padding: 5rem 0;
+	background: var(--surface-light);
+}
+.stories-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+.story-card {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	transition: box-shadow 0.2s, transform 0.2s;
+}
+.story-card:hover {
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-2px);
+}
+.story-header { display: flex; align-items: center; gap: 0.9rem; }
+.story-logo {
+	width: 44px;
+	height: 44px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 0.85rem;
+	flex-shrink: 0;
+}
+.story-company { font-weight: 700; font-size: 0.95rem; }
+.story-industry { font-size: 0.78rem; color: var(--text-muted); }
+.story-quote {
+	margin: 0;
+	font-size: 0.9rem;
+	color: var(--text-secondary);
+	font-style: italic;
+	line-height: 1.6;
+	border-left: 3px solid var(--ci-blue);
+	padding-left: 1rem;
+	flex: 1;
+}
+.story-author {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid var(--border);
+}
+.author-avatar {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: white;
+	flex-shrink: 0;
+}
+.author-name { font-size: 0.85rem; font-weight: 600; }
+.author-role { font-size: 0.75rem; color: var(--text-muted); }
+.story-stats {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.5rem;
+	background: var(--surface-light);
+	border-radius: 10px;
+	padding: 0.75rem;
+}
+.story-stat { text-align: center; }
+.ss-val { font-size: 1.2rem; font-weight: 700; color: var(--ci-blue); line-height: 1; }
+.ss-label { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+.highlight-section {
+	padding: 5rem 0;
+	background: var(--surface-white);
+}
+.highlight-card {
+	background: linear-gradient(135deg, #0B1A2E, #0F2645);
+	border-radius: 20px;
+	padding: 4rem;
+	position: relative;
+	overflow: hidden;
+}
+.highlight-quote-mark {
+	position: absolute;
+	top: 1rem;
+	left: 2.5rem;
+	font-size: 8rem;
+	font-weight: 700;
+	color: rgba(255,255,255,0.06);
+	line-height: 1;
+	pointer-events: none;
+}
+.highlight-text {
+	font-size: 1.35rem;
+	color: rgba(255,255,255,0.85);
+	max-width: 700px;
+	line-height: 1.65;
+	font-style: italic;
+	margin: 0 0 2rem;
+}
+.highlight-author { display: flex; align-items: center; gap: 1rem; }
+.ha-avatar {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	color: white;
+	flex-shrink: 0;
+}
+.ha-name { font-weight: 700; color: white; font-size: 0.95rem; }
+.ha-role { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+
+.customers-cta {
+	padding: 5rem 0;
+	background: var(--ci-navy);
+	text-align: center;
+}
+.customers-cta h2 { color: white; font-size: 2.2rem; margin-bottom: 0.75rem; }
+.customers-cta p {
+	color: rgba(255,255,255,0.6);
+	max-width: 500px;
+	margin: 0 auto 2rem;
+}
+
+@media (max-width: 960px) {
+	.stories-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+	.page-hero h1 { font-size: 2rem; }
+	.stories-grid { grid-template-columns: 1fr; }
+	.highlight-card { padding: 2.5rem 1.5rem; }
+	.highlight-text { font-size: 1.1rem; }
+	.hs-sep { display: none; }
+}
+</style>

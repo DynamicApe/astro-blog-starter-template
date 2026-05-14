@@ -1,62 +1,361 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Why Customer Insights — Dynamics 365"
+			description="Discover how Dynamics 365 Customer Insights unifies data, powers AI predictions, and helps you deliver personalized experiences at scale."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+			<!-- Page hero -->
+			<section class="page-hero">
+				<div class="container">
+					<span class="section-tag">Why Customer Insights</span>
+					<h1>The customer data platform built for enterprise scale</h1>
+					<p>Dynamics 365 Customer Insights is Microsoft's market-leading CDP — trusted by global enterprises to unify data, predict behavior, and activate insights in real time.</p>
+					<a href="/get-demo" class="btn-primary btn-lg">Request a Live Demo</a>
+				</div>
+			</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+			<!-- The problem -->
+			<section class="problem-section">
+				<div class="container">
+					<div class="two-col">
+						<div class="col-text">
+							<span class="section-tag">The Challenge</span>
+							<h2>Customer data is scattered. Decisions shouldn't be.</h2>
+							<p>The average enterprise uses 90+ marketing and CX tools — each holding a fragment of the customer picture. Siloed data leads to disconnected experiences, missed opportunities, and churned customers.</p>
+							<p>Customer Insights resolves identities, merges records, and creates a single authoritative source of truth for every person in your customer base.</p>
+							<a href="/get-demo" class="btn-primary">See it in action →</a>
+						</div>
+						<div class="col-visual">
+							<div class="data-sources">
+								<div class="source-card">
+									<span class="source-icon" style="background:#FFF3CD">📧</span>
+									<span>Email Platform</span>
+								</div>
+								<div class="source-card">
+									<span class="source-icon" style="background:#D4EDDA">🛒</span>
+									<span>E-commerce</span>
+								</div>
+								<div class="source-card">
+									<span class="source-icon" style="background:#CCE5FF">💬</span>
+									<span>Support CRM</span>
+								</div>
+								<div class="source-card">
+									<span class="source-icon" style="background:#F8D7DA">📱</span>
+									<span>Mobile App</span>
+								</div>
+								<div class="source-card">
+									<span class="source-icon" style="background:#E2D9F3">🌐</span>
+									<span>Web Analytics</span>
+								</div>
+								<div class="source-card">
+									<span class="source-icon" style="background:#D1ECF1">🏪</span>
+									<span>POS / In-store</span>
+								</div>
+								<div class="converge-arrow">↓ Unified in Customer Insights</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+			<!-- Capabilities -->
+			<section class="capabilities-section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Core Capabilities</span>
+						<h2>Built for every team in your organization</h2>
+					</div>
+					<div class="capabilities-grid">
+						<div class="capability">
+							<div class="cap-number">01</div>
+							<h3>Data Ingestion &amp; Unification</h3>
+							<p>Ingest structured and unstructured data from 250+ sources. AI-driven identity resolution merges duplicates and creates golden records at scale.</p>
+						</div>
+						<div class="capability">
+							<div class="cap-number">02</div>
+							<h3>Segmentation &amp; Audiences</h3>
+							<p>Build precise segments using any combination of profile attributes, behavioral signals, and predictive scores — updated in real time.</p>
+						</div>
+						<div class="capability">
+							<div class="cap-number">03</div>
+							<h3>Predictive AI Models</h3>
+							<p>Deploy out-of-the-box models for churn prediction, customer lifetime value, product recommendations, and next best action — or bring your own Azure ML models.</p>
+						</div>
+						<div class="capability">
+							<div class="cap-number">04</div>
+							<h3>Activation &amp; Integrations</h3>
+							<p>Push audiences and enriched profiles to Dynamics 365 Marketing, Sales, Service, and 200+ third-party platforms including Salesforce, HubSpot, and Adobe.</p>
+						</div>
+						<div class="capability">
+							<div class="cap-number">05</div>
+							<h3>Privacy &amp; Compliance</h3>
+							<p>Built-in consent management, GDPR/CCPA tools, and Microsoft's enterprise-grade security ensure your data governance is always audit-ready.</p>
+						</div>
+						<div class="capability">
+							<div class="cap-number">06</div>
+							<h3>Real-time Journey Triggers</h3>
+							<p>Emit real-time events to trigger personalized journeys the moment a customer takes an action — whether in app, on web, or in store.</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+			<!-- Trust / Enterprise -->
+			<section class="trust-section">
+				<div class="container">
+					<div class="trust-inner">
+						<div class="trust-text">
+							<span class="section-tag">Enterprise Ready</span>
+							<h2>Trusted at global scale</h2>
+							<p>Customer Insights is built on Azure — the world's most trusted cloud — with enterprise SLAs, 99.9% uptime, and data residency in 60+ regions.</p>
+							<div class="trust-badges-list">
+								<div class="trust-item">
+									<span class="check">✓</span>
+									<span>SOC 1, SOC 2 Type II certified</span>
+								</div>
+								<div class="trust-item">
+									<span class="check">✓</span>
+									<span>ISO 27001 / 27018 certified</span>
+								</div>
+								<div class="trust-item">
+									<span class="check">✓</span>
+									<span>GDPR, CCPA, HIPAA compliant</span>
+								</div>
+								<div class="trust-item">
+									<span class="check">✓</span>
+									<span>Microsoft Purview integration</span>
+								</div>
+								<div class="trust-item">
+									<span class="check">✓</span>
+									<span>Azure Private Link support</span>
+								</div>
+							</div>
+						</div>
+						<div class="trust-metrics">
+							<div class="trust-metric">
+								<div class="tm-val">250+</div>
+								<div class="tm-label">Data Connectors</div>
+							</div>
+							<div class="trust-metric">
+								<div class="tm-val">60+</div>
+								<div class="tm-label">Azure Regions</div>
+							</div>
+							<div class="trust-metric">
+								<div class="tm-val">10B+</div>
+								<div class="tm-label">Profiles Processed Daily</div>
+							</div>
+							<div class="trust-metric">
+								<div class="tm-val">99.9%</div>
+								<div class="tm-label">Uptime SLA</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="about-cta">
+				<div class="container">
+					<h2>See Customer Insights for yourself</h2>
+					<p>Book a personalized demo with a Dynamics 365 solution expert and see how CI can work with your specific data landscape.</p>
+					<a href="/get-demo" class="btn-primary btn-lg">Book Your Demo</a>
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+/* Page hero */
+.page-hero {
+	background: linear-gradient(160deg, #0B1A2E 0%, #0F2645 100%);
+	padding: 5rem 0 4rem;
+	text-align: center;
+}
+.page-hero .section-tag { margin-bottom: 1rem; }
+.page-hero h1 {
+	color: white;
+	font-size: 2.8rem;
+	max-width: 680px;
+	margin: 0 auto 1.25rem;
+}
+.page-hero p {
+	color: rgba(255,255,255,0.65);
+	font-size: 1.1rem;
+	max-width: 560px;
+	margin: 0 auto 2rem;
+}
+
+/* Problem section */
+.problem-section {
+	padding: 6rem 0;
+	background: var(--surface-white);
+}
+.two-col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5rem;
+	align-items: center;
+}
+.col-text .section-tag { margin-bottom: 0.75rem; }
+.col-text h2 { margin-bottom: 1rem; }
+.col-text p { color: var(--text-secondary); margin-bottom: 1rem; }
+
+.data-sources {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.75rem;
+}
+.source-card {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+	background: var(--surface-light);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 0.75rem 1rem;
+	font-size: 0.88rem;
+	font-weight: 600;
+}
+.source-icon {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	flex-shrink: 0;
+}
+.converge-arrow {
+	grid-column: 1 / -1;
+	text-align: center;
+	background: linear-gradient(135deg, var(--ci-navy), var(--ci-blue));
+	color: white;
+	font-size: 0.8rem;
+	font-weight: 700;
+	padding: 0.6rem 1rem;
+	border-radius: 10px;
+}
+
+/* Capabilities */
+.capabilities-section {
+	padding: 6rem 0;
+	background: var(--surface-light);
+}
+.capabilities-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+.capability {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 2rem;
+}
+.cap-number {
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--ci-blue);
+	opacity: 0.25;
+	line-height: 1;
+	margin-bottom: 0.75rem;
+}
+.capability h3 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+.capability p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
+
+/* Trust */
+.trust-section {
+	padding: 6rem 0;
+	background: var(--surface-white);
+}
+.trust-inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5rem;
+	align-items: center;
+}
+.trust-text .section-tag { margin-bottom: 0.75rem; }
+.trust-text h2 { margin-bottom: 1rem; }
+.trust-text p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+.trust-badges-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.trust-item {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-size: 0.9rem;
+	color: var(--text-secondary);
+}
+.check {
+	color: var(--ci-green);
+	font-weight: 700;
+	font-size: 1rem;
+}
+.trust-metrics {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+}
+.trust-metric {
+	background: var(--surface-light);
+	border-radius: 16px;
+	padding: 2rem 1.5rem;
+	text-align: center;
+}
+.tm-val {
+	font-size: 2.2rem;
+	font-weight: 700;
+	color: var(--ci-blue);
+	line-height: 1;
+	margin-bottom: 0.4rem;
+}
+.tm-label {
+	font-size: 0.85rem;
+	color: var(--text-secondary);
+}
+
+/* CTA */
+.about-cta {
+	padding: 5rem 0;
+	background: var(--ci-navy);
+	text-align: center;
+}
+.about-cta h2 {
+	color: white;
+	font-size: 2.2rem;
+	margin-bottom: 0.75rem;
+}
+.about-cta p {
+	color: rgba(255,255,255,0.6);
+	font-size: 1.05rem;
+	max-width: 520px;
+	margin: 0 auto 2rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+	.two-col { grid-template-columns: 1fr; gap: 3rem; }
+	.trust-inner { grid-template-columns: 1fr; gap: 3rem; }
+	.capabilities-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+	.page-hero h1 { font-size: 2rem; }
+	.capabilities-grid { grid-template-columns: 1fr; }
+	.trust-metrics { grid-template-columns: 1fr; }
+}
+</style>
