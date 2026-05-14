@@ -3,11 +3,6 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-).slice(0, 3);
 ---
 
 <!doctype html>
@@ -169,10 +164,11 @@ const posts = (await getCollection('blog')).sort(
 						</div>
 						<div class="feature-card">
 							<div class="feature-icon" style="background:rgba(0,183,195,0.1);color:var(--ci-cyan)">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
 							</div>
-							<h3>Real-time Signals</h3>
-							<p>Capture and react to customer behavior as it happens, triggering personalized journeys in milliseconds.</p>
+							<h3>Built-in Customer Journeys</h3>
+							<p>Trigger real-time, omnichannel journeys the moment a signal fires — email, SMS, push, and in-app, all without a separate marketing tool.</p>
+							<a href="/journeys" class="feature-link">Explore Journeys →</a>
 						</div>
 						<div class="feature-card">
 							<div class="feature-icon" style="background:rgba(0,173,86,0.1);color:var(--ci-green)">
@@ -211,40 +207,71 @@ const posts = (await getCollection('blog')).sort(
 						</div>
 						<div class="step">
 							<div class="step-number">03</div>
-							<h3>Activate Insights</h3>
-							<p>Push segments and predictions to any marketing, sales, or service tool you already use — in real time.</p>
+							<h3>Activate with Journeys</h3>
+							<p>Trigger real-time omnichannel journeys directly from unified profiles — no export, no third-party tool, no lag.</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- ── Blog preview ── -->
-			{posts.length > 0 && (
-				<section class="blog-section">
-					<div class="container">
-						<div class="blog-header">
-							<div>
-								<span class="section-tag">Resources</span>
-								<h2>Latest from the blog</h2>
+			<!-- ── Journeys teaser ── -->
+			<section class="journeys-teaser">
+				<div class="container">
+					<div class="jt-inner">
+						<div class="jt-text">
+							<span class="section-tag">Customer Journeys</span>
+							<h2>Don't just know your customers.<br/>Act on it — instantly.</h2>
+							<p>Customer Insights Journeys is built in, not bolted on. Trigger omnichannel journeys from live profile data the moment a customer signal fires. No exports, no sync lag, no third-party marketing tool required.</p>
+							<div class="jt-bullets">
+								<div class="jt-bullet">
+									<span class="jt-dot" style="background:var(--ci-green)"></span>
+									Trigger-based journeys fire in real time from any CI event
+								</div>
+								<div class="jt-bullet">
+									<span class="jt-dot" style="background:var(--ci-blue)"></span>
+									Email, SMS, push, in-app — all in one canvas
+								</div>
+								<div class="jt-bullet">
+									<span class="jt-dot" style="background:var(--ci-purple)"></span>
+									AI send-time optimization and dynamic personalization built in
+								</div>
 							</div>
-							<a href="/blog" class="btn-outline">View all posts →</a>
+							<a href="/journeys" class="btn-primary" style="margin-top:0.5rem">Explore Journeys →</a>
 						</div>
-						<div class="blog-grid">
-							{posts.map(post => (
-								<a href={`/blog/${post.id}/`} class="blog-card">
-									{post.data.heroImage && (
-										<img src={post.data.heroImage} alt={post.data.title} class="blog-card-img" />
-									)}
-									<div class="blog-card-body">
-										<h3>{post.data.title}</h3>
-										<p>{post.data.description}</p>
-									</div>
-								</a>
-							))}
+						<div class="jt-visual" aria-hidden="true">
+							<div class="jt-card">
+								<div class="jt-card-label">Active Journeys</div>
+								<div class="jt-journey-row">
+									<span class="jt-badge green">● Live</span>
+									<span class="jt-name">Welcome &amp; Onboarding</span>
+									<span class="jt-stat">1,284 active</span>
+								</div>
+								<div class="jt-journey-row">
+									<span class="jt-badge green">● Live</span>
+									<span class="jt-name">Churn Prevention</span>
+									<span class="jt-stat">342 active</span>
+								</div>
+								<div class="jt-journey-row">
+									<span class="jt-badge blue">● Scheduled</span>
+									<span class="jt-name">VIP Loyalty Campaign</span>
+									<span class="jt-stat">12k audience</span>
+								</div>
+								<div class="jt-journey-row">
+									<span class="jt-badge orange">● Draft</span>
+									<span class="jt-name">Win-back Series</span>
+									<span class="jt-stat">—</span>
+								</div>
+								<div class="jt-divider"></div>
+								<div class="jt-metrics-row">
+									<div class="jt-metric"><span>68%</span><small>Avg open rate</small></div>
+									<div class="jt-metric"><span>2.4×</span><small>vs baseline</small></div>
+									<div class="jt-metric"><span>34%</span><small>Goal conversion</small></div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</section>
-			)}
+				</div>
+			</section>
 
 			<!-- ── Final CTA ── -->
 			<section class="cta-section">
@@ -256,7 +283,7 @@ const posts = (await getCollection('blog')).sort(
 						<p>Join thousands of companies using Dynamics 365 to build deeper customer relationships and drive measurable growth.</p>
 						<div class="cta-buttons">
 							<a href="/get-demo" class="btn-primary btn-lg">Get Your Free Demo</a>
-							<a href="/blog" class="btn-ghost">Explore Resources →</a>
+							<a href="/journeys" class="btn-ghost">Explore Journeys →</a>
 						</div>
 					</div>
 				</div>
@@ -578,7 +605,9 @@ const posts = (await getCollection('blog')).sort(
 	margin-bottom: 1.25rem;
 }
 .feature-card h3 { margin-bottom: 0.5rem; }
-.feature-card p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; }
+.feature-card p { color: var(--text-secondary); font-size: 0.95rem; margin: 0 0 0.75rem; }
+.feature-link { font-size: 0.88rem; font-weight: 600; color: var(--ci-blue); text-decoration: none; }
+.feature-link:hover { text-decoration: underline; }
 
 /* ── How it works ── */
 .how-section {
@@ -613,62 +642,78 @@ const posts = (await getCollection('blog')).sort(
 	flex-shrink: 0;
 }
 
-/* ── Blog ── */
-.blog-section {
+/* ── Journeys teaser ── */
+.journeys-teaser {
 	padding: 6rem 0;
 	background: var(--surface-light);
 }
-.blog-header {
-	display: flex;
-	align-items: flex-end;
-	justify-content: space-between;
-	margin-bottom: 2.5rem;
-	gap: 1rem;
-}
-.blog-header h2 { margin: 0; }
-.blog-grid {
+.jt-inner {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1.5rem;
+	grid-template-columns: 1fr 1fr;
+	gap: 5rem;
+	align-items: center;
 }
-.blog-card {
-	background: var(--surface-white);
-	border: 1px solid var(--border);
-	border-radius: 16px;
-	overflow: hidden;
-	text-decoration: none;
-	color: var(--text-primary);
-	transition: box-shadow 0.2s, transform 0.2s;
+.jt-text .section-tag { margin-bottom: 0.75rem; }
+.jt-text h2 { margin-bottom: 1rem; }
+.jt-text > p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+.jt-bullets {
 	display: flex;
 	flex-direction: column;
+	gap: 0.65rem;
+	margin-bottom: 1.75rem;
 }
-.blog-card:hover {
-	box-shadow: var(--shadow-lg);
-	transform: translateY(-2px);
-}
-.blog-card-img {
-	width: 100%;
-	height: 180px;
-	object-fit: cover;
-	border-radius: 0;
-}
-.blog-card-body {
-	padding: 1.5rem;
-	flex: 1;
-}
-.blog-card-body h3 {
-	font-size: 1rem;
-	margin-bottom: 0.4rem;
-}
-.blog-card-body p {
-	font-size: 0.85rem;
+.jt-bullet {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	font-size: 0.92rem;
 	color: var(--text-secondary);
-	margin: 0;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
 }
+.jt-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+.jt-card {
+	background: var(--ci-navy);
+	border-radius: 16px;
+	padding: 1.5rem;
+	box-shadow: var(--shadow-xl);
+}
+.jt-card-label {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: rgba(255,255,255,0.3);
+	margin-bottom: 1rem;
+}
+.jt-journey-row {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.6rem 0;
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.jt-journey-row:last-of-type { border-bottom: none; }
+.jt-badge {
+	font-size: 0.7rem;
+	font-weight: 700;
+	padding: 0.15rem 0.55rem;
+	border-radius: 100px;
+	flex-shrink: 0;
+}
+.jt-badge.green { background: rgba(0,173,86,0.15); color: var(--ci-green); }
+.jt-badge.blue { background: rgba(0,120,212,0.15); color: var(--ci-cyan); }
+.jt-badge.orange { background: rgba(255,140,0,0.15); color: var(--ci-orange); }
+.jt-name { font-size: 0.85rem; color: rgba(255,255,255,0.75); flex: 1; font-weight: 500; }
+.jt-stat { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+.jt-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0.75rem 0; }
+.jt-metrics-row { display: flex; justify-content: space-around; }
+.jt-metric { text-align: center; }
+.jt-metric span { display: block; font-size: 1.3rem; font-weight: 700; color: var(--ci-cyan); line-height: 1; }
+.jt-metric small { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-top: 0.2rem; display: block; }
 
 /* ── CTA ── */
 .cta-section {
@@ -717,16 +762,14 @@ const posts = (await getCollection('blog')).sort(
 	.features-grid { grid-template-columns: 1fr; }
 	.steps-row { grid-template-columns: 1fr; }
 	.step-arrow { display: none; }
-	.blog-grid { grid-template-columns: repeat(2, 1fr); }
+	.jt-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 	.stats-grid { grid-template-columns: repeat(2, 1fr); }
 	.stat-item { border-bottom: 1px solid rgba(255,255,255,0.06); border-right: none; }
 	.stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
 }
 @media (max-width: 600px) {
 	.hero-text h1 { font-size: 2.4rem; }
-	.blog-grid { grid-template-columns: 1fr; }
 	.stats-grid { grid-template-columns: 1fr; }
 	.stat-item { border-right: none; }
-	.blog-header { flex-direction: column; align-items: flex-start; }
 }
 </style>

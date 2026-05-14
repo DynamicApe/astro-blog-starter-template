@@ -18,16 +18,16 @@ const categories = [
 		]
 	},
 	{
-		name: "Marketing",
-		icon: "📣",
+		name: "Loyalty & POS",
+		icon: "🏅",
 		color: "#7B61FF",
 		integrations: [
-			{ name: "Dynamics 365 Marketing", native: true },
-			{ name: "Mailchimp", native: false },
-			{ name: "Klaviyo", native: false },
-			{ name: "Marketo", native: false },
-			{ name: "Adobe Campaign", native: false },
-			{ name: "Braze", native: false },
+			{ name: "Microsoft Cloud for Retail", native: true },
+			{ name: "Talon.One", native: false },
+			{ name: "Antavo", native: false },
+			{ name: "Oracle Retail", native: false },
+			{ name: "NCR / Aloha POS", native: false },
+			{ name: "Lightspeed POS", native: false },
 		]
 	},
 	{
@@ -180,6 +180,22 @@ const categories = [
 								</ul>
 							</div>
 						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- Journeys callout -->
+			<section class="journeys-callout">
+				<div class="container">
+					<div class="jc-inner">
+						<div class="jc-icon" aria-hidden="true">
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 8 16 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+						</div>
+						<div class="jc-text">
+							<h3>Looking for marketing automation &amp; email sending?</h3>
+							<p>You don't need a third-party tool. <strong>Customer Insights Journeys</strong> is built right in — trigger-based and segment-based journeys, email, SMS, push, and in-app, all powered by live CI profile data and AI predictions. No exports, no sync lag, no extra licence.</p>
+						</div>
+						<a href="/journeys" class="btn-primary jc-btn">Explore Journeys →</a>
 					</div>
 				</div>
 			</section>
@@ -394,6 +410,35 @@ const categories = [
 }
 .cta-box-inner h3 { color: white; margin-bottom: 0.5rem; font-size: 1.1rem; }
 .cta-box-inner p { color: rgba(255,255,255,0.55); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+/* Journeys callout */
+.journeys-callout {
+	background: linear-gradient(135deg, #EFF6FC, #F0F0FF);
+	border-top: 1px solid rgba(0,120,212,0.15);
+	border-bottom: 1px solid rgba(0,120,212,0.15);
+	padding: 2.5rem 0;
+}
+.jc-inner {
+	display: flex;
+	align-items: center;
+	gap: 1.75rem;
+	flex-wrap: wrap;
+}
+.jc-icon {
+	width: 60px;
+	height: 60px;
+	background: rgba(0,120,212,0.1);
+	border-radius: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--ci-blue);
+	flex-shrink: 0;
+}
+.jc-text { flex: 1; min-width: 240px; }
+.jc-text h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+.jc-text p { font-size: 0.88rem; color: var(--text-secondary); margin: 0; }
+.jc-btn { white-space: nowrap; flex-shrink: 0; }
 
 /* CTA */
 .integrations-cta {

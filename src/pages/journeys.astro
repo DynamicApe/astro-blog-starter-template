@@ -1,0 +1,909 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const channels = [
+	{ name: "Email", icon: "✉️", desc: "Personalized emails with dynamic content blocks driven by CI profile attributes and AI predictions.", color: "#0078D4" },
+	{ name: "SMS", icon: "💬", desc: "Timely text messages for urgent triggers like abandoned carts, shipping updates, or loyalty rewards.", color: "#7B61FF" },
+	{ name: "Push Notification", icon: "📲", desc: "Reach mobile users at the right moment with contextual, behavior-driven push alerts.", color: "#00B7C3" },
+	{ name: "In-App Message", icon: "🖥️", desc: "Surface offers and guidance inside your web or mobile app without leaving the customer's flow.", color: "#00AD56" },
+	{ name: "Custom Webhook", icon: "⚡", desc: "Trigger any downstream system — CRM task, service ticket, real-time ad suppression — via webhook.", color: "#FF8C00" },
+];
+
+const journeyTypes = [
+	{
+		type: "Trigger-based",
+		tag: "Real-time",
+		tagColor: "#00AD56",
+		desc: "Fires the moment a customer takes a specific action — form fill, purchase, churn signal, score change. Zero lag between signal and response.",
+		examples: ["Welcome series after form submit", "Win-back when churn score crosses threshold", "Post-purchase cross-sell sequence", "Re-engagement when 30 days inactive"],
+		icon: "⚡",
+	},
+	{
+		type: "Segment-based",
+		tag: "Scheduled",
+		tagColor: "#0078D4",
+		desc: "A defined audience enters a journey on a schedule or when they join a segment. Ideal for campaigns, newsletters, and lifecycle programmes.",
+		examples: ["Monthly loyalty newsletter to VIP segment", "Quarterly win-back for lapsed customers", "Annual renewal reminder series", "New product launch to high-LTV segment"],
+		icon: "👥",
+	}
+];
+
+const aiFeatures = [
+	{ title: "Send-time Optimization", desc: "AI analyzes each customer's historical engagement patterns and automatically sends at the moment they're most likely to open and act." },
+	{ title: "Dynamic Content Personalization", desc: "Insert CI profile attributes, AI scores, and segment memberships directly into email subject lines, body, and offers — at the individual level." },
+	{ title: "Next Best Action", desc: "At every decision branch, AI recommends the next best channel, message, or offer based on predicted engagement and conversion probability." },
+	{ title: "A/B Testing with Auto-winner", desc: "Test content, subject lines, or entire journey paths. CI automatically shifts traffic to the winning variant once statistical significance is reached." },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Customer Journeys — Dynamics 365 Customer Insights"
+			description="Orchestrate real-time, AI-powered customer journeys across email, SMS, push, and more — all driven by unified CI profiles and live behavioral signals."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+
+			<!-- ── Hero ── -->
+			<section class="journey-hero">
+				<div class="hero-bg-dots"></div>
+				<div class="container">
+					<span class="badge badge-dark">Customer Insights Journeys</span>
+					<h1>Orchestrate every journey.<br/>In real time.</h1>
+					<p>Built natively into Customer Insights, Journeys lets you trigger personalized, omnichannel experiences the moment a customer signal fires — no third-party marketing tool needed.</p>
+					<div class="hero-ctas">
+						<a href="/get-demo" class="btn-primary btn-lg">See Journeys Live</a>
+						<a href="/customers" class="btn-ghost">View customer results →</a>
+					</div>
+
+					<!-- Journey canvas mockup -->
+					<div class="canvas-mockup" aria-hidden="true">
+						<div class="canvas-toolbar">
+							<span class="canvas-title">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+								Welcome &amp; Onboarding Journey
+							</span>
+							<div class="canvas-chips">
+								<span class="canvas-chip green">● Active</span>
+								<span class="canvas-chip">Analytics</span>
+								<span class="canvas-chip">Save</span>
+							</div>
+						</div>
+						<div class="canvas-body">
+							<div class="journey-flow">
+								<div class="jnode trigger">
+									<div class="jnode-icon">⚡</div>
+									<div class="jnode-label">Trigger</div>
+									<div class="jnode-sub">Form submitted</div>
+								</div>
+								<div class="jconnector"></div>
+								<div class="jnode email">
+									<div class="jnode-icon">✉️</div>
+									<div class="jnode-label">Send Email</div>
+									<div class="jnode-sub">Welcome message</div>
+								</div>
+								<div class="jconnector"></div>
+								<div class="jnode wait">
+									<div class="jnode-icon">⏳</div>
+									<div class="jnode-label">Wait</div>
+									<div class="jnode-sub">3 days</div>
+								</div>
+								<div class="jconnector"></div>
+								<div class="jnode condition">
+									<div class="jnode-icon">◆</div>
+									<div class="jnode-label">Condition</div>
+									<div class="jnode-sub">Email opened?</div>
+								</div>
+							</div>
+							<div class="journey-branches">
+								<div class="branch yes">
+									<div class="branch-label yes-label">Yes</div>
+									<div class="jnode email small">
+										<div class="jnode-icon">✉️</div>
+										<div class="jnode-label">Send Demo Invite</div>
+									</div>
+								</div>
+								<div class="branch no">
+									<div class="branch-label no-label">No</div>
+									<div class="jnode sms small">
+										<div class="jnode-icon">💬</div>
+										<div class="jnode-label">Send SMS Nudge</div>
+									</div>
+								</div>
+							</div>
+							<div class="canvas-stats-row">
+								<div class="cstat"><span class="cstat-val">1,284</span><span class="cstat-label">In journey</span></div>
+								<div class="cstat"><span class="cstat-val">68%</span><span class="cstat-label">Open rate</span></div>
+								<div class="cstat"><span class="cstat-val">34%</span><span class="cstat-label">Goal met</span></div>
+								<div class="cstat"><span class="cstat-val">2.1×</span><span class="cstat-label">vs baseline</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ── Why no third-party tool ── -->
+			<section class="native-section">
+				<div class="container">
+					<div class="native-inner">
+						<div class="native-text">
+							<span class="section-tag">No Extra Tools Required</span>
+							<h2>Your data and your journeys live in one place</h2>
+							<p>Other CDPs export data to a separate marketing tool and hope the sync stays fresh. With Customer Insights, Journeys is built in — every journey step can read the live unified profile, AI score, and segment membership without any export or delay.</p>
+							<ul class="native-list">
+								<li>
+									<span class="native-check">✓</span>
+									<span><strong>No sync latency</strong> — journey conditions read live profile data, not yesterday's export</span>
+								</li>
+								<li>
+									<span class="native-check">✓</span>
+									<span><strong>No duplicate records</strong> — one identity, one profile, one journey history</span>
+								</li>
+								<li>
+									<span class="native-check">✓</span>
+									<span><strong>No extra licences</strong> — Journeys is included in Customer Insights, not an add-on</span>
+								</li>
+								<li>
+									<span class="native-check">✓</span>
+									<span><strong>Unified analytics</strong> — journey performance sits next to profile and AI data, not in a separate dashboard</span>
+								</li>
+							</ul>
+						</div>
+						<div class="native-compare">
+							<div class="compare-card bad">
+								<div class="compare-header">
+									<span class="compare-icon bad-icon">⚠</span>
+									<span>Without CI Journeys</span>
+								</div>
+								<ul>
+									<li>CDP → export → Marketing tool (hours of lag)</li>
+									<li>Duplicate contacts across platforms</li>
+									<li>Manual segment syncs breaking overnight</li>
+									<li>Consent data scattered across tools</li>
+									<li>5 dashboards to understand one journey</li>
+								</ul>
+							</div>
+							<div class="compare-card good">
+								<div class="compare-header">
+									<span class="compare-icon good-icon">✓</span>
+									<span>With CI Journeys</span>
+								</div>
+								<ul>
+									<li>Live profile data in every journey step</li>
+									<li>Single identity, zero duplicates</li>
+									<li>Segments update in real time, journeys follow</li>
+									<li>Built-in consent per channel, per customer</li>
+									<li>Everything in one analytics view</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ── Journey types ── -->
+			<section class="types-section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Journey Types</span>
+						<h2>React instantly or plan at scale — your choice</h2>
+						<p>Customer Insights supports both real-time reactive journeys and scheduled campaign-style orchestration from the same canvas.</p>
+					</div>
+					<div class="types-grid">
+						{journeyTypes.map(jt => (
+							<div class="type-card">
+								<div class="type-top">
+									<span class="type-emoji">{jt.icon}</span>
+									<span class="type-tag" style={`background:${jt.tagColor}22;color:${jt.tagColor}`}>{jt.tag}</span>
+								</div>
+								<h3>{jt.type}</h3>
+								<p>{jt.desc}</p>
+								<div class="type-examples">
+									<div class="examples-label">Examples</div>
+									{jt.examples.map(ex => (
+										<div class="example-item">
+											<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+											{ex}
+										</div>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- ── Channels ── -->
+			<section class="channels-section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Channels</span>
+						<h2>Reach customers wherever they are</h2>
+						<p>Every channel in a single journey. Switch mid-flow based on customer behavior — no copy-pasting segments between tools.</p>
+					</div>
+					<div class="channels-grid">
+						{channels.map(ch => (
+							<div class="channel-card">
+								<div class="channel-icon" style={`background:${ch.color}18;color:${ch.color}`}>{ch.icon}</div>
+								<h3>{ch.name}</h3>
+								<p>{ch.desc}</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- ── AI Personalization ── -->
+			<section class="ai-section">
+				<div class="container">
+					<div class="ai-inner">
+						<div class="ai-text">
+							<span class="section-tag">AI Personalization</span>
+							<h2>Every message, made for one person</h2>
+							<p>Customer Insights Journeys uses the AI scores and predictions already in the customer profile — churn risk, predicted LTV, product affinity — to shape every decision in the journey automatically.</p>
+						</div>
+						<div class="ai-cards">
+							{aiFeatures.map(f => (
+								<div class="ai-card">
+									<div class="ai-card-dot"></div>
+									<div>
+										<h4>{f.title}</h4>
+										<p>{f.desc}</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ── Analytics ── -->
+			<section class="analytics-section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Journey Analytics</span>
+						<h2>Know exactly where your journey wins — and where it leaks</h2>
+					</div>
+					<div class="analytics-grid">
+						<div class="analytics-visual" aria-hidden="true">
+							<div class="funnel-card">
+								<div class="funnel-title">Journey Funnel — Welcome Series</div>
+								<div class="funnel-steps">
+									<div class="funnel-step">
+										<div class="funnel-bar-wrap">
+											<div class="funnel-bar" style="width:100%;background:var(--ci-blue)"></div>
+										</div>
+										<div class="funnel-meta">
+											<span class="funnel-label">Entered journey</span>
+											<span class="funnel-val">4,821</span>
+										</div>
+									</div>
+									<div class="funnel-step">
+										<div class="funnel-bar-wrap">
+											<div class="funnel-bar" style="width:78%;background:var(--ci-purple)"></div>
+										</div>
+										<div class="funnel-meta">
+											<span class="funnel-label">Email opened</span>
+											<span class="funnel-val">3,760 <span class="funnel-pct">78%</span></span>
+										</div>
+									</div>
+									<div class="funnel-step">
+										<div class="funnel-bar-wrap">
+											<div class="funnel-bar" style="width:48%;background:var(--ci-cyan)"></div>
+										</div>
+										<div class="funnel-meta">
+											<span class="funnel-label">Link clicked</span>
+											<span class="funnel-val">2,314 <span class="funnel-pct">48%</span></span>
+										</div>
+									</div>
+									<div class="funnel-step">
+										<div class="funnel-bar-wrap">
+											<div class="funnel-bar" style="width:31%;background:var(--ci-green)"></div>
+										</div>
+										<div class="funnel-meta">
+											<span class="funnel-label">Goal: Demo booked</span>
+											<span class="funnel-val">1,494 <span class="funnel-pct">31%</span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="analytics-features">
+							<div class="af-item">
+								<div class="af-icon" style="background:rgba(0,120,212,0.1);color:var(--ci-blue)">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+								</div>
+								<div>
+									<h4>Path Analytics</h4>
+									<p>See exactly which journey paths customers take, where they exit, and how that correlates with goal conversion.</p>
+								</div>
+							</div>
+							<div class="af-item">
+								<div class="af-icon" style="background:rgba(123,97,255,0.1);color:var(--ci-purple)">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+								</div>
+								<div>
+									<h4>Goal Tracking</h4>
+									<p>Define success criteria (purchase, demo booked, NPS response) and measure each journey against it automatically.</p>
+								</div>
+							</div>
+							<div class="af-item">
+								<div class="af-icon" style="background:rgba(0,183,195,0.1);color:var(--ci-cyan)">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+								</div>
+								<div>
+									<h4>Engagement Scoring</h4>
+									<p>Journey interactions feed back into the CI profile's engagement score, enriching future journey decisions.</p>
+								</div>
+							</div>
+							<div class="af-item">
+								<div class="af-icon" style="background:rgba(0,173,86,0.1);color:var(--ci-green)">
+									<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+								</div>
+								<div>
+									<h4>Revenue Attribution</h4>
+									<p>Connect journey touchpoints to revenue outcomes, so you know precisely which journeys drive measurable ROI.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ── Consent & Compliance ── -->
+			<section class="consent-section">
+				<div class="container">
+					<div class="consent-inner">
+						<div class="consent-icon-block" aria-hidden="true">
+							<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+						</div>
+						<div>
+							<span class="section-tag">Consent &amp; Compliance</span>
+							<h2>Compliant by design, not by bolt-on</h2>
+							<p>Customer Insights Journeys has consent management built into every channel, every journey step. Customers who have opted out of SMS will never receive one, even if they're in a journey — automatically, without manual suppression lists to maintain.</p>
+							<div class="consent-grid">
+								<div class="consent-item">
+									<strong>Per-channel consent</strong>
+									<p>Email, SMS, push, and in-app each have independent consent states stored on the CI profile.</p>
+								</div>
+								<div class="consent-item">
+									<strong>Real-time suppression</strong>
+									<p>Opt-outs are applied to all active journeys within seconds — no overnight batch job.</p>
+								</div>
+								<div class="consent-item">
+									<strong>Double opt-in flows</strong>
+									<p>Build built-in confirmation journeys that comply with GDPR and CAN-SPAM requirements out of the box.</p>
+								</div>
+								<div class="consent-item">
+									<strong>Audit trail</strong>
+									<p>Every consent change is logged in the CI profile with timestamp and source — ready for regulatory audits.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ── CTA ── -->
+			<section class="journeys-cta">
+				<div class="container">
+					<div class="cta-box">
+						<div class="cta-glow"></div>
+						<span class="badge badge-dark">See it in 30 minutes</span>
+						<h2>Watch a real journey get built, live</h2>
+						<p>In your demo, a Microsoft solution engineer will build a trigger-based journey using your real use case — from trigger to analytics — in real time.</p>
+						<a href="/get-demo" class="btn-primary btn-lg">Book Your Free Demo</a>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+/* ── Hero ── */
+.journey-hero {
+	position: relative;
+	background: linear-gradient(135deg, #0B1A2E 0%, #0F2645 60%, #0A2040 100%);
+	padding: 5rem 0 3rem;
+	overflow: hidden;
+	text-align: center;
+}
+.hero-bg-dots {
+	position: absolute;
+	inset: 0;
+	background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+	background-size: 32px 32px;
+	pointer-events: none;
+}
+.journey-hero .badge { margin-bottom: 1.5rem; }
+.journey-hero h1 {
+	color: white;
+	font-size: 3.2rem;
+	margin-bottom: 1.25rem;
+}
+.journey-hero > .container > p {
+	color: rgba(255,255,255,0.65);
+	font-size: 1.1rem;
+	max-width: 580px;
+	margin: 0 auto 2rem;
+}
+.hero-ctas {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 3.5rem;
+}
+
+/* Canvas mockup */
+.canvas-mockup {
+	background: rgba(255,255,255,0.04);
+	border: 1px solid rgba(255,255,255,0.1);
+	border-radius: 16px;
+	overflow: hidden;
+	max-width: 780px;
+	margin: 0 auto;
+	box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+}
+.canvas-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 1.25rem;
+	background: rgba(255,255,255,0.04);
+	border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.canvas-title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: rgba(255,255,255,0.7);
+}
+.canvas-chips {
+	display: flex;
+	gap: 0.5rem;
+}
+.canvas-chip {
+	background: rgba(255,255,255,0.06);
+	color: rgba(255,255,255,0.4);
+	font-size: 0.72rem;
+	padding: 0.2rem 0.6rem;
+	border-radius: 6px;
+}
+.canvas-chip.green { color: var(--ci-green); }
+
+.canvas-body {
+	padding: 2rem 1.5rem 1.5rem;
+}
+.journey-flow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+	flex-wrap: wrap;
+}
+.jnode {
+	background: rgba(255,255,255,0.06);
+	border: 1px solid rgba(255,255,255,0.12);
+	border-radius: 10px;
+	padding: 0.7rem 1rem;
+	text-align: center;
+	min-width: 110px;
+}
+.jnode.trigger { border-color: rgba(0,173,86,0.5); background: rgba(0,173,86,0.08); }
+.jnode.email { border-color: rgba(0,120,212,0.5); background: rgba(0,120,212,0.08); }
+.jnode.wait { border-color: rgba(255,255,255,0.15); }
+.jnode.condition { border-color: rgba(123,97,255,0.5); background: rgba(123,97,255,0.08); }
+.jnode.sms { border-color: rgba(123,97,255,0.4); background: rgba(123,97,255,0.06); }
+.jnode.small { min-width: 130px; }
+.jnode-icon { font-size: 1.2rem; margin-bottom: 0.2rem; }
+.jnode-label { font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.8); }
+.jnode-sub { font-size: 0.65rem; color: rgba(255,255,255,0.35); margin-top: 0.15rem; }
+
+.jconnector {
+	width: 28px;
+	height: 2px;
+	background: rgba(255,255,255,0.15);
+	position: relative;
+	flex-shrink: 0;
+}
+.jconnector::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: -3px;
+	border: 4px solid transparent;
+	border-left-color: rgba(255,255,255,0.2);
+}
+
+.journey-branches {
+	display: flex;
+	justify-content: center;
+	gap: 3rem;
+	margin-bottom: 1.5rem;
+}
+.branch {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+.branch-label {
+	font-size: 0.72rem;
+	font-weight: 700;
+	padding: 0.15rem 0.5rem;
+	border-radius: 4px;
+}
+.yes-label { background: rgba(0,173,86,0.15); color: var(--ci-green); }
+.no-label { background: rgba(255,140,0,0.15); color: var(--ci-orange); }
+
+.canvas-stats-row {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid rgba(255,255,255,0.06);
+}
+.cstat { text-align: center; }
+.cstat-val { display: block; font-size: 1.25rem; font-weight: 700; color: var(--ci-cyan); }
+.cstat-label { font-size: 0.7rem; color: rgba(255,255,255,0.35); }
+
+/* ── Native section ── */
+.native-section {
+	padding: 6rem 0;
+	background: var(--surface-white);
+}
+.native-inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5rem;
+	align-items: center;
+}
+.native-text .section-tag { margin-bottom: 0.75rem; }
+.native-text h2 { margin-bottom: 1rem; }
+.native-text > p { color: var(--text-secondary); margin-bottom: 1.75rem; }
+.native-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+}
+.native-list li {
+	display: flex;
+	gap: 0.75rem;
+	font-size: 0.92rem;
+}
+.native-check {
+	color: var(--ci-green);
+	font-weight: 700;
+	flex-shrink: 0;
+	margin-top: 0.1rem;
+}
+.native-compare {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.compare-card {
+	border-radius: 14px;
+	padding: 1.5rem;
+	border: 1px solid var(--border);
+}
+.compare-card.bad { background: #FFF8F7; border-color: #FFCCC7; }
+.compare-card.good { background: #F0FDF4; border-color: #BBF7D0; }
+.compare-header {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-weight: 700;
+	font-size: 0.9rem;
+	margin-bottom: 0.9rem;
+}
+.bad-icon { color: #D83B01; }
+.good-icon { color: var(--ci-green); }
+.compare-card ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+.compare-card li {
+	font-size: 0.82rem;
+	color: var(--text-secondary);
+	padding-left: 0.5rem;
+	border-left: 2px solid transparent;
+}
+.compare-card.bad li { border-left-color: #FFCCC7; }
+.compare-card.good li { border-left-color: #BBF7D0; }
+
+/* ── Journey types ── */
+.types-section {
+	padding: 6rem 0;
+	background: var(--surface-light);
+}
+.types-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+}
+.type-card {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 18px;
+	padding: 2.5rem;
+}
+.type-top {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 1.25rem;
+}
+.type-emoji { font-size: 1.75rem; }
+.type-tag {
+	font-size: 0.75rem;
+	font-weight: 700;
+	padding: 0.25rem 0.7rem;
+	border-radius: 100px;
+}
+.type-card h3 { margin-bottom: 0.75rem; font-size: 1.3rem; }
+.type-card > p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+.type-examples {}
+.examples-label {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin-bottom: 0.6rem;
+}
+.example-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.88rem;
+	color: var(--text-secondary);
+	padding: 0.35rem 0;
+	border-bottom: 1px solid var(--border);
+}
+.example-item:last-child { border-bottom: none; }
+.example-item svg { color: var(--ci-green); flex-shrink: 0; }
+
+/* ── Channels ── */
+.channels-section {
+	padding: 6rem 0;
+	background: var(--surface-white);
+}
+.channels-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1.25rem;
+}
+.channel-card {
+	background: var(--surface-light);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	padding: 1.5rem;
+	text-align: center;
+	transition: box-shadow 0.2s, transform 0.2s;
+}
+.channel-card:hover {
+	box-shadow: var(--shadow-md);
+	transform: translateY(-2px);
+}
+.channel-icon {
+	width: 50px;
+	height: 50px;
+	border-radius: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.4rem;
+	margin: 0 auto 0.9rem;
+}
+.channel-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+.channel-card p { font-size: 0.8rem; color: var(--text-secondary); margin: 0; }
+
+/* ── AI section ── */
+.ai-section {
+	padding: 6rem 0;
+	background: var(--ci-navy);
+}
+.ai-inner {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5rem;
+	align-items: start;
+}
+.ai-text .section-tag { margin-bottom: 0.75rem; }
+.ai-text h2 { color: white; margin-bottom: 1rem; }
+.ai-text > p { color: rgba(255,255,255,0.6); font-size: 1rem; }
+.ai-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+.ai-card {
+	display: flex;
+	gap: 1rem;
+	background: rgba(255,255,255,0.04);
+	border: 1px solid rgba(255,255,255,0.08);
+	border-radius: 14px;
+	padding: 1.25rem;
+}
+.ai-card-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--ci-cyan);
+	flex-shrink: 0;
+	margin-top: 0.4rem;
+}
+.ai-card h4 { color: white; font-size: 0.95rem; margin-bottom: 0.4rem; }
+.ai-card p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin: 0; }
+
+/* ── Analytics ── */
+.analytics-section {
+	padding: 6rem 0;
+	background: var(--surface-light);
+}
+.analytics-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: start;
+	margin-top: 3rem;
+}
+.funnel-card {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 2rem;
+	box-shadow: var(--shadow-md);
+}
+.funnel-title {
+	font-weight: 700;
+	font-size: 0.88rem;
+	color: var(--text-secondary);
+	margin-bottom: 1.5rem;
+}
+.funnel-steps { display: flex; flex-direction: column; gap: 1rem; }
+.funnel-step {}
+.funnel-bar-wrap {
+	height: 8px;
+	background: var(--surface-muted);
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 0.4rem;
+}
+.funnel-bar {
+	height: 100%;
+	border-radius: 4px;
+	transition: width 0.4s;
+}
+.funnel-meta {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.82rem;
+}
+.funnel-label { color: var(--text-secondary); }
+.funnel-val { font-weight: 600; color: var(--text-primary); }
+.funnel-pct { color: var(--text-muted); font-weight: 400; }
+
+.analytics-features { display: flex; flex-direction: column; gap: 1.5rem; }
+.af-item { display: flex; gap: 1rem; align-items: flex-start; }
+.af-icon {
+	width: 44px;
+	height: 44px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+.af-item h4 { margin-bottom: 0.3rem; font-size: 1rem; }
+.af-item p { color: var(--text-secondary); font-size: 0.88rem; margin: 0; }
+
+/* ── Consent ── */
+.consent-section {
+	padding: 6rem 0;
+	background: var(--surface-white);
+}
+.consent-inner {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 3rem;
+	align-items: start;
+}
+.consent-icon-block {
+	width: 80px;
+	height: 80px;
+	background: var(--ci-blue-light);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--ci-blue);
+	flex-shrink: 0;
+}
+.consent-inner .section-tag { margin-bottom: 0.6rem; }
+.consent-inner h2 { margin-bottom: 0.75rem; }
+.consent-inner > div > p { color: var(--text-secondary); margin-bottom: 2rem; }
+.consent-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+}
+.consent-item {
+	background: var(--surface-light);
+	border-radius: 12px;
+	padding: 1.25rem;
+}
+.consent-item strong { display: block; margin-bottom: 0.4rem; font-size: 0.92rem; }
+.consent-item p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+/* ── CTA ── */
+.journeys-cta {
+	padding: 6rem 0;
+	background: var(--ci-navy);
+}
+.cta-box {
+	position: relative;
+	text-align: center;
+	padding: 4rem 2rem;
+	overflow: hidden;
+}
+.cta-glow {
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	background: radial-gradient(ellipse, rgba(0,120,212,0.35) 0%, transparent 70%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	pointer-events: none;
+}
+.cta-box .badge { margin-bottom: 1.5rem; }
+.cta-box h2 { color: white; font-size: 2.5rem; margin-bottom: 0.75rem; }
+.cta-box p {
+	color: rgba(255,255,255,0.6);
+	font-size: 1.05rem;
+	max-width: 500px;
+	margin: 0 auto 2.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+	.channels-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+	.native-inner,
+	.types-grid,
+	.ai-inner,
+	.analytics-grid { grid-template-columns: 1fr; gap: 3rem; }
+	.consent-inner { grid-template-columns: 1fr; }
+	.consent-icon-block { display: none; }
+}
+@media (max-width: 600px) {
+	.journey-hero h1 { font-size: 2.2rem; }
+	.channels-grid { grid-template-columns: repeat(2, 1fr); }
+	.canvas-stats-row { gap: 1rem; }
+	.consent-grid { grid-template-columns: 1fr; }
+	.journey-branches { gap: 1.5rem; }
+}
+</style>
