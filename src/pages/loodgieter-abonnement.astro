@@ -1,7 +1,8 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+
+const phone = "088 - 776 5400";
+const phoneHref = "tel:+31887765400";
 
 const plans = [
 	{
@@ -11,7 +12,6 @@ const plans = [
 		description: "Voor wie zeker wil zijn van snelle hulp bij dagelijkse loodgietersklussen.",
 		highlight: false,
 		cta: "Word lid",
-		ctaHref: "/get-demo",
 		features: [
 			"Voorrang in de wachtrij",
 			"Reactie binnen 4 uur",
@@ -29,7 +29,6 @@ const plans = [
 		highlight: true,
 		badge: "Meest gekozen",
 		cta: "Word lid",
-		ctaHref: "/get-demo",
 		features: [
 			"Hoogste voorrang — vóór niet-leden",
 			"Reactie binnen 2 uur",
@@ -47,7 +46,6 @@ const plans = [
 		description: "Voor VvE's, verhuurders en bedrijven met meerdere panden en strakke SLA's.",
 		highlight: false,
 		cta: "Vraag offerte aan",
-		ctaHref: "/get-demo",
 		features: [
 			"Gegarandeerde reactietijd per SLA",
 			"24/7 spoeddienst voor alle panden",
@@ -75,6 +73,27 @@ const steps = [
 		num: "3",
 		title: "Snel opgelost",
 		text: "De klus wordt direct verholpen tegen ledentarief, zonder voorrijkosten."
+	}
+];
+
+const reviews = [
+	{
+		name: "Marloes D.",
+		city: "Utrecht",
+		text: "Lekkage op zondagavond gemeld, binnen 40 minuten stond er een loodgieter voor de deur. Echt voorrang dus!",
+		stars: 5
+	},
+	{
+		name: "Ahmed K.",
+		city: "Rotterdam",
+		text: "Sinds het abonnement nooit meer gedoe. Vaste loodgieter die ons huis kent en geen voorrijkosten.",
+		stars: 5
+	},
+	{
+		name: "Familie Jansen",
+		city: "Amersfoort",
+		text: "Verstopping verholpen binnen 2 uur, netjes en eerlijk geprijsd. Aanrader voor ieder huishouden.",
+		stars: 5
 	}
 ];
 
@@ -114,60 +133,142 @@ const faqs = [
 			description="Met ons loodgieter abonnement krijg je voorrang op een loodgieter zonder vertragingen. Reactie binnen 2 uur, 24/7 spoeddienst en geen voorrijkosten."
 		/>
 	</head>
-	<body>
-		<Header />
+	<body class="lg-page">
+
+		<!-- Top bar -->
+		<div class="lg-topbar">
+			<div class="container">
+				<span class="topbar-msg">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+					24/7 spoeddienst &middot; Geen voorrijkosten &middot; Erkend installateur
+				</span>
+				<a href={phoneHref} class="topbar-phone">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+					{phone}
+				</a>
+			</div>
+		</div>
+
+		<!-- Header -->
+		<header class="lg-header">
+			<div class="container">
+				<a href="#" class="lg-logo">
+					<span class="logo-mark">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+					</span>
+					<span class="logo-text">Vakman<strong>Loodgieters</strong></span>
+				</a>
+				<nav class="lg-nav">
+					<a href="#voordelen">Voordelen</a>
+					<a href="#werkwijze">Werkwijze</a>
+					<a href="#abonnementen">Abonnementen</a>
+					<a href="#reviews">Reviews</a>
+					<a href="#faq">Vragen</a>
+				</nav>
+				<a href={phoneHref} class="btn-call header-call">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+					Bel direct
+				</a>
+			</div>
+		</header>
+
 		<main>
 
 			<!-- Hero -->
 			<section class="lg-hero">
-				<div class="container">
-					<span class="section-tag">Loodgieter Abonnement</span>
-					<h1>Altijd voorrang op een loodgieter — zonder vertraging</h1>
-					<p>Een lekkage of verstopping wacht niet. Met een abonnement sta je bovenaan de wachtrij en staat er binnen 2 uur een vaste loodgieter voor je deur.</p>
-					<div class="hero-cta">
-						<a href="#plannen" class="btn-primary btn-lg">Bekijk de abonnementen</a>
-						<a href="/get-demo" class="btn-outline-light">Direct hulp nodig?</a>
+				<div class="container hero-grid">
+					<div class="hero-copy">
+						<span class="hero-eyebrow">★★★★★ 4,9 / 5 op basis van 2.300+ reviews</span>
+						<h1>Altijd <span class="hl">voorrang</span> op een loodgieter — nooit meer wachten</h1>
+						<p>Een lekkage of verstopping wacht niet. Met een abonnement sta je bovenaan de wachtrij en staat er binnen 2 uur een vaste loodgieter voor je deur.</p>
+						<div class="hero-cta">
+							<a href={phoneHref} class="btn-call btn-lg">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+								Bel {phone}
+							</a>
+							<a href="#abonnementen" class="btn-ghost btn-lg">Bekijk abonnementen</a>
+						</div>
+						<ul class="hero-usps">
+							<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Binnen 2 uur ter plaatse</li>
+							<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Geen voorrijkosten</li>
+							<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 24/7 bereikbaar</li>
+						</ul>
 					</div>
-					<div class="hero-stats">
-						<div class="hero-stat"><strong>&lt; 2 uur</strong><span>gemiddelde reactietijd</span></div>
-						<div class="hero-stat"><strong>24/7</strong><span>spoeddienst</span></div>
-						<div class="hero-stat"><strong>€0</strong><span>voorrijkosten</span></div>
+					<div class="hero-card">
+						<div class="hero-card-top">
+							<span class="emergency-dot"></span>
+							Spoed? Wij staan voor je klaar
+						</div>
+						<div class="hero-card-stat">
+							<strong>&lt; 2 uur</strong>
+							<span>gemiddelde reactietijd voor leden</span>
+						</div>
+						<div class="hero-card-row">
+							<div><strong>24/7</strong><span>spoeddienst</span></div>
+							<div><strong>€0</strong><span>voorrijkosten</span></div>
+							<div><strong>15 jr</strong><span>ervaring</span></div>
+						</div>
+						<a href={phoneHref} class="btn-call btn-block">Bel nu voor directe hulp</a>
+						<p class="hero-card-note">Of word lid en betaal nooit meer voorrijkosten.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Trust bar -->
+			<section class="lg-trust">
+				<div class="container trust-row">
+					<div class="trust-item">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+						Erkend &amp; verzekerd
+					</div>
+					<div class="trust-item">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+						Garantie op alle werk
+					</div>
+					<div class="trust-item">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+						Vandaag nog geholpen
+					</div>
+					<div class="trust-item">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5l-8-3z"/></svg>
+						Vaste, eerlijke tarieven
 					</div>
 				</div>
 			</section>
 
 			<!-- Why -->
-			<section class="lg-why">
+			<section class="lg-section" id="voordelen">
 				<div class="container">
-					<div class="section-header">
-						<span class="section-tag">Waarom een abonnement</span>
+					<div class="section-head">
+						<span class="kicker">Waarom een abonnement</span>
 						<h2>Nooit meer eindeloos wachten op een loodgieter</h2>
+						<p>Vier redenen waarom duizenden huishoudens kiezen voor een vast loodgieter-abonnement.</p>
 					</div>
 					<div class="why-grid">
 						<div class="why-card">
-							<div class="why-icon" style="background:var(--ci-blue-light);color:var(--ci-blue)">
-								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+							<div class="why-icon blue">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
 							</div>
 							<h3>Voorrang gegarandeerd</h3>
 							<p>Leden worden altijd als eerste ingepland. Niet-leden sluiten achteraan aan — jij niet.</p>
 						</div>
 						<div class="why-card">
-							<div class="why-icon" style="background:rgba(0,173,86,0.1);color:var(--ci-green)">
-								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+							<div class="why-icon orange">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
 							</div>
 							<h3>Geen vertraging</h3>
 							<p>Gegarandeerde reactietijden en een vaste loodgieter in jouw regio. Snel ter plaatse, snel opgelost.</p>
 						</div>
 						<div class="why-card">
-							<div class="why-icon" style="background:rgba(255,140,0,0.1);color:var(--ci-orange)">
-								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 12H2m20 0h-3M6.3 6.3 4.2 4.2m13.5 2.1 2.1-2.1"/></svg>
+							<div class="why-icon green">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
 							</div>
 							<h3>Vaste, lage tarieven</h3>
 							<p>Geen voorrijkosten en flinke korting op het arbeidsloon. Vooraf weet je waar je aan toe bent.</p>
 						</div>
 						<div class="why-card">
-							<div class="why-icon" style="background:rgba(123,97,255,0.1);color:var(--ci-purple)">
-								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+							<div class="why-icon blue">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
 							</div>
 							<h3>Vertrouwde vakman</h3>
 							<p>Steeds dezelfde, gecertificeerde loodgieter die jouw woning en installatie kent.</p>
@@ -177,10 +278,10 @@ const faqs = [
 			</section>
 
 			<!-- How it works -->
-			<section class="lg-steps">
+			<section class="lg-section alt" id="werkwijze">
 				<div class="container">
-					<div class="section-header">
-						<span class="section-tag">Hoe het werkt</span>
+					<div class="section-head">
+						<span class="kicker">Hoe het werkt</span>
 						<h2>Van melding tot opgelost in drie stappen</h2>
 					</div>
 					<div class="steps-grid">
@@ -196,11 +297,12 @@ const faqs = [
 			</section>
 
 			<!-- Plans -->
-			<section class="plans-section" id="plannen">
+			<section class="lg-section" id="abonnementen">
 				<div class="container">
-					<div class="section-header">
-						<span class="section-tag">Abonnementen</span>
+					<div class="section-head">
+						<span class="kicker">Abonnementen</span>
 						<h2>Kies het abonnement dat bij je past</h2>
+						<p>Maandelijks opzegbaar na 12 maanden. Altijd voorrang, altijd zonder voorrijkosten.</p>
 					</div>
 					<div class="plans-grid">
 						{plans.map(plan => (
@@ -212,13 +314,13 @@ const faqs = [
 									{plan.period && <span class="price-period">{plan.period}</span>}
 								</div>
 								<p class="plan-desc">{plan.description}</p>
-								<a href={plan.ctaHref} class={plan.highlight ? 'btn-primary' : 'btn-outline'} style="display:block;text-align:center;margin-bottom:1.5rem">
+								<a href={phoneHref} class={plan.highlight ? 'btn-call btn-block' : 'btn-outline btn-block'}>
 									{plan.cta}
 								</a>
 								<ul class="plan-features">
 									{plan.features.map(f => (
 										<li>
-											<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+											<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
 											{f}
 										</li>
 									))}
@@ -226,45 +328,71 @@ const faqs = [
 							</div>
 						))}
 					</div>
-					<p class="pricing-note">Alle prijzen zijn inclusief btw. Maandelijks opzegbaar na 12 maanden. <a href="/get-demo">Neem contact op</a> voor abonnementen op maat.</p>
+					<p class="plans-note">Alle prijzen zijn inclusief btw. <a href={phoneHref}>Bel {phone}</a> voor abonnementen op maat.</p>
 				</div>
 			</section>
 
-			<!-- Comparison: member vs non-member -->
-			<section class="compare-section">
+			<!-- Comparison -->
+			<section class="lg-section alt">
 				<div class="container">
-					<div class="section-header">
-						<span class="section-tag">Vergelijk</span>
+					<div class="section-head">
+						<span class="kicker">Vergelijk</span>
 						<h2>Met abonnement vs. zonder abonnement</h2>
 					</div>
-					<div class="compare-table-wrap">
+					<div class="compare-wrap">
 						<table class="compare-table">
 							<thead>
 								<tr>
 									<th>Wat je krijgt</th>
 									<th>Zonder abonnement</th>
-									<th class="col-highlight">Met abonnement</th>
+									<th class="col-hl">Met abonnement</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr><td>Plaats in de wachtrij</td><td>Achteraan</td><td class="col-highlight">Voorrang — bovenaan</td></tr>
-								<tr><td>Reactietijd</td><td>1–3 dagen</td><td class="col-highlight">Binnen 2 uur</td></tr>
-								<tr><td>24/7 spoeddienst</td><td>—</td><td class="col-highlight">✓</td></tr>
-								<tr><td>Voorrijkosten</td><td>€45–€75</td><td class="col-highlight">€0</td></tr>
-								<tr><td>Korting op arbeidsloon</td><td>—</td><td class="col-highlight">Tot 20%</td></tr>
-								<tr><td>Vaste loodgieter</td><td>—</td><td class="col-highlight">✓</td></tr>
-								<tr><td>Jaarlijkse controlebeurt</td><td>—</td><td class="col-highlight">✓</td></tr>
+								<tr><td>Plaats in de wachtrij</td><td class="neg">Achteraan</td><td class="col-hl">Voorrang — bovenaan</td></tr>
+								<tr><td>Reactietijd</td><td class="neg">1–3 dagen</td><td class="col-hl">Binnen 2 uur</td></tr>
+								<tr><td>24/7 spoeddienst</td><td class="neg">—</td><td class="col-hl">✓</td></tr>
+								<tr><td>Voorrijkosten</td><td class="neg">€45–€75</td><td class="col-hl">€0</td></tr>
+								<tr><td>Korting op arbeidsloon</td><td class="neg">—</td><td class="col-hl">Tot 20%</td></tr>
+								<tr><td>Vaste loodgieter</td><td class="neg">—</td><td class="col-hl">✓</td></tr>
+								<tr><td>Jaarlijkse controlebeurt</td><td class="neg">—</td><td class="col-hl">✓</td></tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</section>
 
-			<!-- FAQ -->
-			<section class="faq-section">
+			<!-- Reviews -->
+			<section class="lg-section" id="reviews">
 				<div class="container">
-					<div class="section-header">
-						<span class="section-tag">Veelgestelde vragen</span>
+					<div class="section-head">
+						<span class="kicker">Reviews</span>
+						<h2>Beoordeeld met een 4,9 door onze leden</h2>
+						<p>Echte ervaringen van huishoudens die nooit meer wachten op een loodgieter.</p>
+					</div>
+					<div class="reviews-grid">
+						{reviews.map(r => (
+							<div class="review-card">
+								<div class="review-stars">{'★'.repeat(r.stars)}</div>
+								<p class="review-text">“{r.text}”</p>
+								<div class="review-author">
+									<span class="review-avatar">{r.name.charAt(0)}</span>
+									<div>
+										<strong>{r.name}</strong>
+										<span>{r.city}</span>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section class="lg-section alt" id="faq">
+				<div class="container">
+					<div class="section-head">
+						<span class="kicker">Veelgestelde vragen</span>
 						<h2>Goed om te weten</h2>
 					</div>
 					<div class="faq-grid">
@@ -278,298 +406,397 @@ const faqs = [
 				</div>
 			</section>
 
-			<!-- CTA -->
-			<section class="lg-cta">
+			<!-- Final CTA -->
+			<section class="lg-final">
 				<div class="container">
 					<h2>Nooit meer wachten op een loodgieter</h2>
-					<p>Word vandaag nog lid en krijg direct voorrang. Geen lekkage of verstopping houdt je nog langer op.</p>
-					<div class="cta-buttons">
-						<a href="/get-demo" class="btn-primary btn-lg">Word nu lid</a>
-						<a href="/get-demo" class="btn-outline">Stel een vraag →</a>
+					<p>Word vandaag nog lid en krijg direct voorrang. Of bel ons nu voor acute hulp — dag en nacht bereikbaar.</p>
+					<div class="final-cta">
+						<a href={phoneHref} class="btn-call btn-lg">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+							Bel {phone}
+						</a>
+						<a href="#abonnementen" class="btn-ghost btn-lg">Word lid</a>
 					</div>
 				</div>
 			</section>
 
 		</main>
-		<Footer />
+
+		<!-- Footer -->
+		<footer class="lg-footer">
+			<div class="container footer-grid">
+				<div class="footer-brand">
+					<a href="#" class="lg-logo light">
+						<span class="logo-mark">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+						</span>
+						<span class="logo-text">Vakman<strong>Loodgieters</strong></span>
+					</a>
+					<p>Erkend installatiebedrijf met een landelijk netwerk van vaste loodgieters. Altijd voorrang, nooit vertraging.</p>
+				</div>
+				<div class="footer-col">
+					<h4>Diensten</h4>
+					<a href="#">Lekkage verhelpen</a>
+					<a href="#">Verstopping ontstoppen</a>
+					<a href="#">Kraan &amp; toilet reparatie</a>
+					<a href="#">CV-storing</a>
+				</div>
+				<div class="footer-col">
+					<h4>Abonnement</h4>
+					<a href="#abonnementen">Abonnementen</a>
+					<a href="#voordelen">Voordelen</a>
+					<a href="#reviews">Reviews</a>
+					<a href="#faq">Veelgestelde vragen</a>
+				</div>
+				<div class="footer-col">
+					<h4>Direct contact</h4>
+					<a href={phoneHref} class="footer-phone">{phone}</a>
+					<p>24/7 bereikbaar, ook in het weekend en op feestdagen.</p>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container">
+					<span>© 2026 VakmanLoodgieters · Erkend &amp; verzekerd · KvK 12345678</span>
+				</div>
+			</div>
+		</footer>
+
 	</body>
 </html>
 
 <style>
-.lg-hero {
-	background: linear-gradient(160deg, #0B1A2E 0%, #0F2645 100%);
-	padding: 5rem 0 4rem;
-	text-align: center;
+/* ===== Plumber theme tokens (scoped to this page) ===== */
+.lg-page {
+	--p-blue:      #0B66C3;
+	--p-blue-dark: #074C91;
+	--p-navy:      #0A2540;
+	--p-accent:    #FF8A00;
+	--p-accent-hi: #FFA72B;
+	--p-green:     #16A34A;
+	--p-ink:       #16263B;
+	--p-text:      #44566B;
+	--p-muted:     #7C8CA0;
+	--p-line:      #E4EBF2;
+	--p-soft:      #F3F7FB;
+	--p-white:     #FFFFFF;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	color: var(--p-text);
+	margin: 0;
+	background: var(--p-white);
 }
-.lg-hero .section-tag { margin-bottom: 1rem; }
-.lg-hero h1 { color: white; font-size: 2.8rem; margin-bottom: 1rem; max-width: 760px; margin-inline: auto; }
-.lg-hero p {
-	color: rgba(255,255,255,0.65);
-	font-size: 1.05rem;
-	margin-bottom: 2rem;
-	max-width: 600px;
-	margin-inline: auto;
-}
-.hero-cta {
-	display: flex;
-	gap: 1rem;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin-bottom: 3rem;
-}
-.btn-outline-light {
+.lg-page .container { width: 100%; max-width: 1140px; margin-inline: auto; padding-inline: 1.25rem; }
+.lg-page h1, .lg-page h2, .lg-page h3, .lg-page h4 { color: var(--p-ink); line-height: 1.15; margin: 0; }
+.lg-page p { margin: 0; }
+.lg-page a { text-decoration: none; }
+.lg-page svg { display: block; }
+
+/* ===== Buttons ===== */
+.btn-call, .btn-ghost, .btn-outline {
 	display: inline-flex;
 	align-items: center;
-	padding: 0.7rem 1.5rem;
-	border-radius: 8px;
-	font-weight: 700;
+	justify-content: center;
+	gap: 0.5rem;
+	font-weight: 800;
 	font-size: 0.95rem;
-	text-decoration: none;
-	color: white;
-	border: 2px solid rgba(255,255,255,0.25);
-	transition: background 0.2s, border-color 0.2s;
+	border-radius: 10px;
+	padding: 0.7rem 1.25rem;
+	cursor: pointer;
+	transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
+	white-space: nowrap;
 }
-.btn-outline-light:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
-.hero-stats {
-	display: flex;
-	gap: 2.5rem;
-	justify-content: center;
-	flex-wrap: wrap;
+.btn-call {
+	background: linear-gradient(180deg, var(--p-accent-hi), var(--p-accent));
+	color: #fff;
+	box-shadow: 0 6px 16px rgba(255,138,0,0.35);
 }
-.hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
-.hero-stat strong { color: white; font-size: 1.8rem; line-height: 1; }
-.hero-stat span { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+.btn-call:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(255,138,0,0.45); }
+.btn-ghost {
+	background: rgba(255,255,255,0.12);
+	color: #fff;
+	border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.2); }
+.btn-outline {
+	background: #fff;
+	color: var(--p-blue);
+	border: 2px solid var(--p-blue);
+}
+.btn-outline:hover { background: var(--p-soft); }
+.btn-lg { padding: 0.95rem 1.6rem; font-size: 1.02rem; }
+.btn-block { display: flex; width: 100%; }
 
-/* Why */
-.lg-why { padding: 5rem 0; background: var(--surface-white); }
-.why-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 1.5rem;
-	margin-top: 2.5rem;
+/* ===== Top bar ===== */
+.lg-topbar {
+	background: var(--p-navy);
+	color: rgba(255,255,255,0.85);
+	font-size: 0.82rem;
 }
-.why-card {
-	background: var(--surface-white);
-	border: 1px solid var(--border);
-	border-radius: 16px;
-	padding: 1.75rem;
+.lg-topbar .container { display: flex; align-items: center; justify-content: space-between; height: 38px; }
+.topbar-msg { display: inline-flex; align-items: center; gap: 0.45rem; }
+.topbar-msg svg { color: var(--p-accent-hi); }
+.topbar-phone { color: #fff; font-weight: 800; display: inline-flex; align-items: center; gap: 0.4rem; }
+.topbar-phone svg { color: var(--p-accent-hi); }
+
+/* ===== Header ===== */
+.lg-header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background: rgba(255,255,255,0.96);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid var(--p-line);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
-.why-icon {
-	width: 48px;
-	height: 48px;
-	border-radius: 12px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.lg-header .container { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 1rem; }
+.lg-logo { display: inline-flex; align-items: center; gap: 0.55rem; }
+.logo-mark {
+	width: 38px; height: 38px;
+	border-radius: 10px;
+	background: linear-gradient(135deg, var(--p-blue), var(--p-blue-dark));
+	color: #fff;
+	display: flex; align-items: center; justify-content: center;
+	box-shadow: 0 4px 10px rgba(11,102,195,0.3);
+}
+.logo-text { font-size: 1.2rem; font-weight: 600; color: var(--p-ink); letter-spacing: -0.01em; }
+.logo-text strong { font-weight: 800; color: var(--p-blue); }
+.lg-nav { display: flex; gap: 0.35rem; }
+.lg-nav a {
+	color: var(--p-text);
+	font-weight: 600;
+	font-size: 0.92rem;
+	padding: 0.5rem 0.8rem;
+	border-radius: 8px;
+	transition: color 0.15s, background 0.15s;
+}
+.lg-nav a:hover { color: var(--p-blue); background: var(--p-soft); }
+
+/* ===== Hero ===== */
+.lg-hero {
+	background:
+		radial-gradient(1200px 500px at 80% -10%, rgba(255,138,0,0.18), transparent 60%),
+		linear-gradient(160deg, #0A2540 0%, #0B66C3 100%);
+	padding: 4.5rem 0 5rem;
+	color: #fff;
+}
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: center; }
+.hero-eyebrow {
+	display: inline-block;
+	color: var(--p-accent-hi);
+	font-weight: 800;
+	font-size: 0.85rem;
+	letter-spacing: 0.02em;
 	margin-bottom: 1rem;
 }
-.why-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-.why-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+.hero-copy h1 { color: #fff; font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.hero-copy h1 .hl { color: var(--p-accent-hi); }
+.hero-copy > p { color: rgba(255,255,255,0.78); font-size: 1.1rem; max-width: 520px; margin-bottom: 1.75rem; }
+.hero-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.hero-usps { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; }
+.hero-usps li { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.92rem; color: #fff; }
+.hero-usps svg { color: var(--p-accent-hi); }
+
+.hero-card {
+	background: #fff;
+	border-radius: 18px;
+	padding: 1.75rem;
+	color: var(--p-text);
+	box-shadow: 0 30px 60px rgba(4,30,60,0.35);
+}
+.hero-card-top { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--p-ink); font-size: 0.95rem; margin-bottom: 1rem; }
+.emergency-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--p-accent); box-shadow: 0 0 0 0 rgba(255,138,0,0.6); animation: pulse 1.8s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255,138,0,0.5); } 70% { box-shadow: 0 0 0 10px rgba(255,138,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,138,0,0); } }
+.hero-card-stat { border-bottom: 1px solid var(--p-line); padding-bottom: 1.1rem; margin-bottom: 1.1rem; }
+.hero-card-stat strong { display: block; font-size: 2.6rem; color: var(--p-blue); line-height: 1; }
+.hero-card-stat span { font-size: 0.9rem; color: var(--p-muted); }
+.hero-card-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.5rem; margin-bottom: 1.25rem; text-align: center; }
+.hero-card-row strong { display: block; font-size: 1.35rem; color: var(--p-ink); }
+.hero-card-row span { font-size: 0.78rem; color: var(--p-muted); }
+.hero-card-note { font-size: 0.8rem; color: var(--p-muted); text-align: center; margin-top: 0.75rem; }
+
+/* ===== Trust bar ===== */
+.lg-trust { background: var(--p-soft); border-bottom: 1px solid var(--p-line); }
+.trust-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.25rem; }
+.trust-item { display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 700; color: var(--p-ink); font-size: 0.92rem; }
+.trust-item svg { color: var(--p-blue); }
+
+/* ===== Sections ===== */
+.lg-section { padding: 5rem 0; }
+.lg-section.alt { background: var(--p-soft); }
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 2.75rem; }
+.kicker {
+	display: inline-block;
+	color: var(--p-blue);
+	font-weight: 800;
+	font-size: 0.8rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	margin-bottom: 0.65rem;
+}
+.section-head h2 { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.01em; }
+.section-head p { color: var(--p-text); margin-top: 0.75rem; font-size: 1.02rem; }
+
+/* Why */
+.why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+.why-card {
+	background: #fff;
+	border: 1px solid var(--p-line);
+	border-radius: 16px;
+	padding: 1.75rem;
+	transition: transform 0.15s, box-shadow 0.2s;
+}
+.why-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(10,37,64,0.1); }
+.why-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; }
+.why-icon.blue { background: #E5F0FB; color: var(--p-blue); }
+.why-icon.orange { background: #FFF1E0; color: var(--p-accent); }
+.why-icon.green { background: #E4F7EC; color: var(--p-green); }
+.why-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.why-card p { font-size: 0.92rem; color: var(--p-text); }
 
 /* Steps */
-.lg-steps { padding: 5rem 0; background: var(--surface-light); }
-.steps-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1.5rem;
-	margin-top: 2.5rem;
-}
+.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
 .step-card {
-	background: var(--surface-white);
-	border: 1px solid var(--border);
+	background: #fff;
+	border: 1px solid var(--p-line);
 	border-radius: 16px;
-	padding: 2rem;
+	padding: 2.25rem 2rem;
 	text-align: center;
+	position: relative;
 }
 .step-num {
-	width: 44px;
-	height: 44px;
+	width: 52px; height: 52px;
 	border-radius: 50%;
-	background: var(--ci-blue);
-	color: white;
-	font-weight: 700;
-	font-size: 1.2rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto 1rem;
+	background: linear-gradient(135deg, var(--p-blue), var(--p-blue-dark));
+	color: #fff;
+	font-weight: 800; font-size: 1.3rem;
+	display: flex; align-items: center; justify-content: center;
+	margin: 0 auto 1.1rem;
+	box-shadow: 0 8px 18px rgba(11,102,195,0.3);
 }
-.step-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-.step-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+.step-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.step-card p { font-size: 0.92rem; color: var(--p-text); }
 
-/* Plans (shared look with pricing) */
-.plans-section {
-	padding: 5rem 0;
-	background: var(--surface-white);
-}
-.plans-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1.5rem;
-	align-items: start;
-	margin: 2.5rem 0 1.5rem;
-}
+/* Plans */
+.plans-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; align-items: start; margin-bottom: 1.5rem; }
 .plan-card {
-	background: var(--surface-white);
-	border: 1px solid var(--border);
-	border-radius: 20px;
+	background: #fff;
+	border: 1px solid var(--p-line);
+	border-radius: 18px;
 	padding: 2rem;
 	position: relative;
 }
 .plan-highlight {
-	background: var(--ci-navy);
-	border-color: var(--ci-blue);
-	box-shadow: 0 0 0 2px var(--ci-blue), var(--shadow-xl);
+	border: 2px solid var(--p-accent);
+	box-shadow: 0 20px 44px rgba(10,37,64,0.16);
+	transform: translateY(-6px);
 }
 .plan-badge {
-	position: absolute;
-	top: -12px;
-	left: 50%;
-	transform: translateX(-50%);
-	background: var(--ci-blue);
-	color: white;
-	font-size: 0.75rem;
-	font-weight: 700;
-	padding: 0.25rem 0.9rem;
-	border-radius: 100px;
-	white-space: nowrap;
+	position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+	background: linear-gradient(180deg, var(--p-accent-hi), var(--p-accent));
+	color: #fff; font-size: 0.75rem; font-weight: 800;
+	padding: 0.3rem 1rem; border-radius: 100px; white-space: nowrap;
+	box-shadow: 0 5px 12px rgba(255,138,0,0.4);
 }
-.plan-name {
-	font-size: 0.85rem;
-	font-weight: 700;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	color: var(--text-muted);
-	margin-bottom: 0.75rem;
-}
-.plan-highlight .plan-name { color: rgba(255,255,255,0.4); }
-.plan-price {
-	display: flex;
-	align-items: baseline;
-	gap: 0.25rem;
-	margin-bottom: 0.75rem;
-}
-.price-val {
-	font-size: 2.6rem;
-	font-weight: 700;
-	color: var(--text-primary);
-	line-height: 1;
-}
-.plan-highlight .price-val { color: white; }
-.price-period {
-	font-size: 0.9rem;
-	color: var(--text-muted);
-}
-.plan-desc {
-	font-size: 0.9rem;
-	color: var(--text-secondary);
-	margin-bottom: 1.5rem;
-	min-height: 3.5em;
-}
-.plan-highlight .plan-desc { color: rgba(255,255,255,0.5); }
-.plan-features {
-	list-style: none;
-	padding: 1.25rem 0 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 0.6rem;
-	border-top: 1px solid var(--border);
-}
-.plan-highlight .plan-features { border-color: rgba(255,255,255,0.1); }
-.plan-features li {
-	display: flex;
-	align-items: center;
-	gap: 0.6rem;
-	font-size: 0.88rem;
-	color: var(--text-secondary);
-}
-.plan-highlight .plan-features li { color: rgba(255,255,255,0.65); }
-.plan-features li svg { color: var(--ci-green); flex-shrink: 0; }
-.pricing-note {
-	text-align: center;
-	font-size: 0.82rem;
-	color: var(--text-muted);
-	margin: 0;
-}
+.plan-name { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--p-muted); margin-bottom: 0.6rem; }
+.plan-price { display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.65rem; }
+.price-val { font-size: 2.6rem; font-weight: 800; color: var(--p-ink); line-height: 1; }
+.price-period { font-size: 0.9rem; color: var(--p-muted); }
+.plan-desc { font-size: 0.9rem; color: var(--p-text); margin-bottom: 1.5rem; min-height: 3.6em; }
+.plan-features { list-style: none; padding: 1.25rem 0 0; margin: 1.25rem 0 0; border-top: 1px solid var(--p-line); display: flex; flex-direction: column; gap: 0.65rem; }
+.plan-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--p-text); }
+.plan-features li svg { color: var(--p-green); flex-shrink: 0; }
+.plans-note { text-align: center; font-size: 0.85rem; color: var(--p-muted); }
+.plans-note a { color: var(--p-blue); font-weight: 700; }
 
-/* Compare table */
-.compare-section { padding: 5rem 0; background: var(--surface-light); }
-.compare-table-wrap {
-	overflow-x: auto;
-	margin-top: 2.5rem;
-	border-radius: 16px;
-	border: 1px solid var(--border);
-	background: var(--surface-white);
-}
-.compare-table {
-	width: 100%;
-	border-collapse: collapse;
-	font-size: 0.9rem;
-}
-.compare-table th {
-	padding: 1rem 1.25rem;
-	text-align: left;
-	background: var(--surface-muted);
-	font-weight: 700;
-	font-size: 0.85rem;
-	border-bottom: 1px solid var(--border);
-}
-.compare-table th.col-highlight {
-	background: var(--ci-navy);
-	color: white;
-}
-.compare-table td {
-	padding: 0.85rem 1.25rem;
-	border-bottom: 1px solid var(--border);
-	color: var(--text-secondary);
-}
-.compare-table td.col-highlight {
-	background: rgba(0,120,212,0.04);
-	font-weight: 600;
-	color: var(--text-primary);
-}
+/* Compare */
+.compare-wrap { border: 1px solid var(--p-line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 10px 26px rgba(10,37,64,0.06); }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.compare-table th { text-align: left; padding: 1rem 1.4rem; font-size: 0.85rem; font-weight: 800; background: var(--p-soft); color: var(--p-ink); border-bottom: 1px solid var(--p-line); }
+.compare-table th.col-hl { background: var(--p-blue); color: #fff; }
+.compare-table td { padding: 0.9rem 1.4rem; border-bottom: 1px solid var(--p-line); color: var(--p-text); }
+.compare-table td.col-hl { background: rgba(11,102,195,0.05); font-weight: 700; color: var(--p-ink); }
+.compare-table td.neg { color: var(--p-muted); }
 .compare-table tr:last-child td { border-bottom: none; }
 
+/* Reviews */
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.review-card { background: #fff; border: 1px solid var(--p-line); border-radius: 16px; padding: 1.75rem; box-shadow: 0 8px 22px rgba(10,37,64,0.05); }
+.review-stars { color: #FFB300; font-size: 1.05rem; letter-spacing: 0.1em; margin-bottom: 0.85rem; }
+.review-text { font-size: 0.95rem; color: var(--p-ink); margin-bottom: 1.25rem; line-height: 1.55; }
+.review-author { display: flex; align-items: center; gap: 0.7rem; }
+.review-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--p-blue), var(--p-blue-dark)); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.review-author strong { display: block; color: var(--p-ink); font-size: 0.92rem; }
+.review-author span { font-size: 0.82rem; color: var(--p-muted); }
+
 /* FAQ */
-.faq-section { padding: 5rem 0; background: var(--surface-white); }
-.faq-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 2rem;
-	margin-top: 2.5rem;
-}
-.faq-item {
-	background: var(--surface-white);
-	border: 1px solid var(--border);
-	border-radius: 14px;
-	padding: 1.75rem;
-}
-.faq-item h3 { font-size: 1rem; margin-bottom: 0.6rem; }
-.faq-item p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+.faq-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; }
+.faq-item { background: #fff; border: 1px solid var(--p-line); border-radius: 14px; padding: 1.6rem; }
+.faq-item h3 { font-size: 1rem; margin-bottom: 0.55rem; color: var(--p-ink); }
+.faq-item p { font-size: 0.92rem; color: var(--p-text); }
 
-/* CTA */
-.lg-cta { padding: 5rem 0; background: var(--ci-navy); text-align: center; }
-.lg-cta h2 { color: white; font-size: 2.2rem; margin-bottom: 0.75rem; }
-.lg-cta p {
-	color: rgba(255,255,255,0.6);
-	max-width: 520px;
-	margin: 0 auto 2rem;
+/* Final CTA */
+.lg-final {
+	background:
+		radial-gradient(800px 300px at 20% 0%, rgba(255,138,0,0.18), transparent 60%),
+		linear-gradient(160deg, #0B66C3 0%, #074C91 100%);
+	padding: 5rem 0;
+	text-align: center;
+	color: #fff;
 }
-.cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.lg-final h2 { color: #fff; font-size: 2.3rem; font-weight: 800; margin-bottom: 0.75rem; }
+.lg-final p { color: rgba(255,255,255,0.82); max-width: 560px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
 
-/* Responsive */
+/* Footer */
+.lg-footer { background: var(--p-navy); color: rgba(255,255,255,0.7); }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 2.5rem; padding: 3.5rem 1.25rem; }
+.lg-logo.light .logo-text, .lg-logo.light .logo-text strong { color: #fff; }
+.footer-brand p { margin-top: 1rem; font-size: 0.9rem; max-width: 320px; line-height: 1.6; }
+.footer-col h4 { color: #fff; font-size: 0.95rem; margin-bottom: 1rem; }
+.footer-col a { display: block; color: rgba(255,255,255,0.7); font-size: 0.9rem; padding: 0.3rem 0; transition: color 0.15s; }
+.footer-col a:hover { color: #fff; }
+.footer-phone { color: var(--p-accent-hi) !important; font-size: 1.3rem !important; font-weight: 800; padding: 0 0 0.5rem !important; }
+.footer-col p { font-size: 0.85rem; line-height: 1.55; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-bottom .container { padding-block: 1.25rem; }
+.footer-bottom span { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+/* ===== Responsive ===== */
 @media (max-width: 1000px) {
-	.why-grid { grid-template-columns: repeat(2, 1fr); }
+	.hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+	.why-grid { grid-template-columns: repeat(2,1fr); }
+	.footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
-@media (max-width: 900px) {
-	.plans-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
-	.steps-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+@media (max-width: 860px) {
+	.lg-nav { display: none; }
+	.steps-grid, .reviews-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+	.plans-grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+	.plan-highlight { transform: none; }
 	.faq-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-	.lg-hero h1 { font-size: 2rem; }
+	.hero-copy h1 { font-size: 2.1rem; }
+	.section-head h2 { font-size: 1.7rem; }
+	.lg-final h2 { font-size: 1.8rem; }
 	.why-grid { grid-template-columns: 1fr; }
-	.hero-stats { gap: 1.5rem; }
+	.footer-grid { grid-template-columns: 1fr; }
+	.topbar-msg { display: none; }
+	.lg-topbar .container { justify-content: center; }
+	.header-call span { display: none; }
 }
 </style>
+
+<script>
+	// Smooth scroll for in-page anchors
+	document.querySelectorAll('.lg-page a[href^="#"]').forEach(link => {
+		link.addEventListener('click', (e) => {
+			const id = link.getAttribute('href');
+			if (!id || id === '#') return;
+			const target = document.querySelector(id);
+			if (target) {
+				e.preventDefault();
+				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		});
+	});
+</script>
