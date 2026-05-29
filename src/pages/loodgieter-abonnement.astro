@@ -1,0 +1,575 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const plans = [
+	{
+		name: "Basis",
+		price: "€9,95",
+		period: "/maand",
+		description: "Voor wie zeker wil zijn van snelle hulp bij dagelijkse loodgietersklussen.",
+		highlight: false,
+		cta: "Word lid",
+		ctaHref: "/get-demo",
+		features: [
+			"Voorrang in de wachtrij",
+			"Reactie binnen 4 uur",
+			"Geen voorrijkosten",
+			"10% korting op arbeidsloon",
+			"1 gratis controlebeurt per jaar",
+			"Telefonische storingshulp (kantooruren)",
+		]
+	},
+	{
+		name: "Comfort",
+		price: "€19,95",
+		period: "/maand",
+		description: "Voor huishoudens die altijd direct geholpen willen worden — zonder vertraging.",
+		highlight: true,
+		badge: "Meest gekozen",
+		cta: "Word lid",
+		ctaHref: "/get-demo",
+		features: [
+			"Hoogste voorrang — vóór niet-leden",
+			"Reactie binnen 2 uur",
+			"24/7 spoeddienst inbegrepen",
+			"Geen voorrijkosten",
+			"20% korting op arbeidsloon",
+			"2 gratis controlebeurten per jaar",
+			"Vaste vertrouwde loodgieter",
+		]
+	},
+	{
+		name: "Zakelijk",
+		price: "Op maat",
+		period: "",
+		description: "Voor VvE's, verhuurders en bedrijven met meerdere panden en strakke SLA's.",
+		highlight: false,
+		cta: "Vraag offerte aan",
+		ctaHref: "/get-demo",
+		features: [
+			"Gegarandeerde reactietijd per SLA",
+			"24/7 spoeddienst voor alle panden",
+			"Vast aanspreekpunt & accountmanager",
+			"Periodiek onderhoudsplan",
+			"Maandelijkse rapportage",
+			"Voorrang op alle locaties",
+			"Facturatie per pand of centraal",
+		]
+	}
+];
+
+const steps = [
+	{
+		num: "1",
+		title: "Meld je storing",
+		text: "Bel of app ons, dag en nacht. Als lid kom je automatisch bovenaan de wachtrij."
+	},
+	{
+		num: "2",
+		title: "Wij komen voorrijden",
+		text: "Een vaste loodgieter uit jouw regio staat klaar — geen wachtlijst, geen vertraging."
+	},
+	{
+		num: "3",
+		title: "Snel opgelost",
+		text: "De klus wordt direct verholpen tegen ledentarief, zonder voorrijkosten."
+	}
+];
+
+const faqs = [
+	{
+		q: "Wat betekent voorrang precies?",
+		a: "Leden worden altijd vóór niet-leden ingepland. Bij een spoedmelding schuif je direct bovenaan onze planning, zodat je niet hoeft te wachten tot er een gaatje vrij is."
+	},
+	{
+		q: "Geldt het abonnement ook 's nachts en in het weekend?",
+		a: "Bij het Comfort- en Zakelijk-abonnement is de 24/7 spoeddienst inbegrepen, dus ook 's nachts, in het weekend en op feestdagen krijg je voorrang."
+	},
+	{
+		q: "Zitten er voorrijkosten aan vast?",
+		a: "Nee. Voor alle abonnementen vervallen de voorrijkosten volledig. Je betaalt alleen het (gereduceerde) arbeidsloon en materiaal."
+	},
+	{
+		q: "Kan ik maandelijks opzeggen?",
+		a: "Ja. Het abonnement is maandelijks opzegbaar na de eerste 12 maanden. Geen kleine lettertjes, geen verrassingen."
+	},
+	{
+		q: "Welke werkzaamheden vallen onder het abonnement?",
+		a: "Denk aan lekkages, verstoppingen, kraan- en toiletreparaties, en cv-storingen. Grotere verbouwingen vallen erbuiten, maar krijgen wél het ledentarief en voorrang in de planning."
+	},
+	{
+		q: "Voor welke regio's geldt het?",
+		a: "We werken met een landelijk netwerk van vaste loodgieters. Tijdens je aanmelding controleren we direct of jouw postcode binnen ons servicegebied valt."
+	}
+];
+---
+
+<!doctype html>
+<html lang="nl">
+	<head>
+		<BaseHead
+			title="Loodgieter Abonnement — Altijd voorrang, nooit vertraging"
+			description="Met ons loodgieter abonnement krijg je voorrang op een loodgieter zonder vertragingen. Reactie binnen 2 uur, 24/7 spoeddienst en geen voorrijkosten."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+
+			<!-- Hero -->
+			<section class="lg-hero">
+				<div class="container">
+					<span class="section-tag">Loodgieter Abonnement</span>
+					<h1>Altijd voorrang op een loodgieter — zonder vertraging</h1>
+					<p>Een lekkage of verstopping wacht niet. Met een abonnement sta je bovenaan de wachtrij en staat er binnen 2 uur een vaste loodgieter voor je deur.</p>
+					<div class="hero-cta">
+						<a href="#plannen" class="btn-primary btn-lg">Bekijk de abonnementen</a>
+						<a href="/get-demo" class="btn-outline-light">Direct hulp nodig?</a>
+					</div>
+					<div class="hero-stats">
+						<div class="hero-stat"><strong>&lt; 2 uur</strong><span>gemiddelde reactietijd</span></div>
+						<div class="hero-stat"><strong>24/7</strong><span>spoeddienst</span></div>
+						<div class="hero-stat"><strong>€0</strong><span>voorrijkosten</span></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Why -->
+			<section class="lg-why">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Waarom een abonnement</span>
+						<h2>Nooit meer eindeloos wachten op een loodgieter</h2>
+					</div>
+					<div class="why-grid">
+						<div class="why-card">
+							<div class="why-icon" style="background:var(--ci-blue-light);color:var(--ci-blue)">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+							</div>
+							<h3>Voorrang gegarandeerd</h3>
+							<p>Leden worden altijd als eerste ingepland. Niet-leden sluiten achteraan aan — jij niet.</p>
+						</div>
+						<div class="why-card">
+							<div class="why-icon" style="background:rgba(0,173,86,0.1);color:var(--ci-green)">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+							</div>
+							<h3>Geen vertraging</h3>
+							<p>Gegarandeerde reactietijden en een vaste loodgieter in jouw regio. Snel ter plaatse, snel opgelost.</p>
+						</div>
+						<div class="why-card">
+							<div class="why-icon" style="background:rgba(255,140,0,0.1);color:var(--ci-orange)">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 12H2m20 0h-3M6.3 6.3 4.2 4.2m13.5 2.1 2.1-2.1"/></svg>
+							</div>
+							<h3>Vaste, lage tarieven</h3>
+							<p>Geen voorrijkosten en flinke korting op het arbeidsloon. Vooraf weet je waar je aan toe bent.</p>
+						</div>
+						<div class="why-card">
+							<div class="why-icon" style="background:rgba(123,97,255,0.1);color:var(--ci-purple)">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+							</div>
+							<h3>Vertrouwde vakman</h3>
+							<p>Steeds dezelfde, gecertificeerde loodgieter die jouw woning en installatie kent.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- How it works -->
+			<section class="lg-steps">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Hoe het werkt</span>
+						<h2>Van melding tot opgelost in drie stappen</h2>
+					</div>
+					<div class="steps-grid">
+						{steps.map(step => (
+							<div class="step-card">
+								<div class="step-num">{step.num}</div>
+								<h3>{step.title}</h3>
+								<p>{step.text}</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- Plans -->
+			<section class="plans-section" id="plannen">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Abonnementen</span>
+						<h2>Kies het abonnement dat bij je past</h2>
+					</div>
+					<div class="plans-grid">
+						{plans.map(plan => (
+							<div class={`plan-card ${plan.highlight ? 'plan-highlight' : ''}`}>
+								{plan.badge && <div class="plan-badge">{plan.badge}</div>}
+								<div class="plan-name">{plan.name}</div>
+								<div class="plan-price">
+									<span class="price-val">{plan.price}</span>
+									{plan.period && <span class="price-period">{plan.period}</span>}
+								</div>
+								<p class="plan-desc">{plan.description}</p>
+								<a href={plan.ctaHref} class={plan.highlight ? 'btn-primary' : 'btn-outline'} style="display:block;text-align:center;margin-bottom:1.5rem">
+									{plan.cta}
+								</a>
+								<ul class="plan-features">
+									{plan.features.map(f => (
+										<li>
+											<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+											{f}
+										</li>
+									))}
+								</ul>
+							</div>
+						))}
+					</div>
+					<p class="pricing-note">Alle prijzen zijn inclusief btw. Maandelijks opzegbaar na 12 maanden. <a href="/get-demo">Neem contact op</a> voor abonnementen op maat.</p>
+				</div>
+			</section>
+
+			<!-- Comparison: member vs non-member -->
+			<section class="compare-section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Vergelijk</span>
+						<h2>Met abonnement vs. zonder abonnement</h2>
+					</div>
+					<div class="compare-table-wrap">
+						<table class="compare-table">
+							<thead>
+								<tr>
+									<th>Wat je krijgt</th>
+									<th>Zonder abonnement</th>
+									<th class="col-highlight">Met abonnement</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>Plaats in de wachtrij</td><td>Achteraan</td><td class="col-highlight">Voorrang — bovenaan</td></tr>
+								<tr><td>Reactietijd</td><td>1–3 dagen</td><td class="col-highlight">Binnen 2 uur</td></tr>
+								<tr><td>24/7 spoeddienst</td><td>—</td><td class="col-highlight">✓</td></tr>
+								<tr><td>Voorrijkosten</td><td>€45–€75</td><td class="col-highlight">€0</td></tr>
+								<tr><td>Korting op arbeidsloon</td><td>—</td><td class="col-highlight">Tot 20%</td></tr>
+								<tr><td>Vaste loodgieter</td><td>—</td><td class="col-highlight">✓</td></tr>
+								<tr><td>Jaarlijkse controlebeurt</td><td>—</td><td class="col-highlight">✓</td></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section class="faq-section">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Veelgestelde vragen</span>
+						<h2>Goed om te weten</h2>
+					</div>
+					<div class="faq-grid">
+						{faqs.map(faq => (
+							<div class="faq-item">
+								<h3>{faq.q}</h3>
+								<p>{faq.a}</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="lg-cta">
+				<div class="container">
+					<h2>Nooit meer wachten op een loodgieter</h2>
+					<p>Word vandaag nog lid en krijg direct voorrang. Geen lekkage of verstopping houdt je nog langer op.</p>
+					<div class="cta-buttons">
+						<a href="/get-demo" class="btn-primary btn-lg">Word nu lid</a>
+						<a href="/get-demo" class="btn-outline">Stel een vraag →</a>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+.lg-hero {
+	background: linear-gradient(160deg, #0B1A2E 0%, #0F2645 100%);
+	padding: 5rem 0 4rem;
+	text-align: center;
+}
+.lg-hero .section-tag { margin-bottom: 1rem; }
+.lg-hero h1 { color: white; font-size: 2.8rem; margin-bottom: 1rem; max-width: 760px; margin-inline: auto; }
+.lg-hero p {
+	color: rgba(255,255,255,0.65);
+	font-size: 1.05rem;
+	margin-bottom: 2rem;
+	max-width: 600px;
+	margin-inline: auto;
+}
+.hero-cta {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 3rem;
+}
+.btn-outline-light {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.7rem 1.5rem;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 0.95rem;
+	text-decoration: none;
+	color: white;
+	border: 2px solid rgba(255,255,255,0.25);
+	transition: background 0.2s, border-color 0.2s;
+}
+.btn-outline-light:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+.hero-stats {
+	display: flex;
+	gap: 2.5rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+.hero-stat strong { color: white; font-size: 1.8rem; line-height: 1; }
+.hero-stat span { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+/* Why */
+.lg-why { padding: 5rem 0; background: var(--surface-white); }
+.why-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+	margin-top: 2.5rem;
+}
+.why-card {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 1.75rem;
+}
+.why-icon {
+	width: 48px;
+	height: 48px;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+.why-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.why-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+
+/* Steps */
+.lg-steps { padding: 5rem 0; background: var(--surface-light); }
+.steps-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+	margin-top: 2.5rem;
+}
+.step-card {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 2rem;
+	text-align: center;
+}
+.step-num {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: var(--ci-blue);
+	color: white;
+	font-weight: 700;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1rem;
+}
+.step-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.step-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+
+/* Plans (shared look with pricing) */
+.plans-section {
+	padding: 5rem 0;
+	background: var(--surface-white);
+}
+.plans-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+	align-items: start;
+	margin: 2.5rem 0 1.5rem;
+}
+.plan-card {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	padding: 2rem;
+	position: relative;
+}
+.plan-highlight {
+	background: var(--ci-navy);
+	border-color: var(--ci-blue);
+	box-shadow: 0 0 0 2px var(--ci-blue), var(--shadow-xl);
+}
+.plan-badge {
+	position: absolute;
+	top: -12px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--ci-blue);
+	color: white;
+	font-size: 0.75rem;
+	font-weight: 700;
+	padding: 0.25rem 0.9rem;
+	border-radius: 100px;
+	white-space: nowrap;
+}
+.plan-name {
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin-bottom: 0.75rem;
+}
+.plan-highlight .plan-name { color: rgba(255,255,255,0.4); }
+.plan-price {
+	display: flex;
+	align-items: baseline;
+	gap: 0.25rem;
+	margin-bottom: 0.75rem;
+}
+.price-val {
+	font-size: 2.6rem;
+	font-weight: 700;
+	color: var(--text-primary);
+	line-height: 1;
+}
+.plan-highlight .price-val { color: white; }
+.price-period {
+	font-size: 0.9rem;
+	color: var(--text-muted);
+}
+.plan-desc {
+	font-size: 0.9rem;
+	color: var(--text-secondary);
+	margin-bottom: 1.5rem;
+	min-height: 3.5em;
+}
+.plan-highlight .plan-desc { color: rgba(255,255,255,0.5); }
+.plan-features {
+	list-style: none;
+	padding: 1.25rem 0 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	border-top: 1px solid var(--border);
+}
+.plan-highlight .plan-features { border-color: rgba(255,255,255,0.1); }
+.plan-features li {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-size: 0.88rem;
+	color: var(--text-secondary);
+}
+.plan-highlight .plan-features li { color: rgba(255,255,255,0.65); }
+.plan-features li svg { color: var(--ci-green); flex-shrink: 0; }
+.pricing-note {
+	text-align: center;
+	font-size: 0.82rem;
+	color: var(--text-muted);
+	margin: 0;
+}
+
+/* Compare table */
+.compare-section { padding: 5rem 0; background: var(--surface-light); }
+.compare-table-wrap {
+	overflow-x: auto;
+	margin-top: 2.5rem;
+	border-radius: 16px;
+	border: 1px solid var(--border);
+	background: var(--surface-white);
+}
+.compare-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.9rem;
+}
+.compare-table th {
+	padding: 1rem 1.25rem;
+	text-align: left;
+	background: var(--surface-muted);
+	font-weight: 700;
+	font-size: 0.85rem;
+	border-bottom: 1px solid var(--border);
+}
+.compare-table th.col-highlight {
+	background: var(--ci-navy);
+	color: white;
+}
+.compare-table td {
+	padding: 0.85rem 1.25rem;
+	border-bottom: 1px solid var(--border);
+	color: var(--text-secondary);
+}
+.compare-table td.col-highlight {
+	background: rgba(0,120,212,0.04);
+	font-weight: 600;
+	color: var(--text-primary);
+}
+.compare-table tr:last-child td { border-bottom: none; }
+
+/* FAQ */
+.faq-section { padding: 5rem 0; background: var(--surface-white); }
+.faq-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+	margin-top: 2.5rem;
+}
+.faq-item {
+	background: var(--surface-white);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	padding: 1.75rem;
+}
+.faq-item h3 { font-size: 1rem; margin-bottom: 0.6rem; }
+.faq-item p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+
+/* CTA */
+.lg-cta { padding: 5rem 0; background: var(--ci-navy); text-align: center; }
+.lg-cta h2 { color: white; font-size: 2.2rem; margin-bottom: 0.75rem; }
+.lg-cta p {
+	color: rgba(255,255,255,0.6);
+	max-width: 520px;
+	margin: 0 auto 2rem;
+}
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+	.why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+	.plans-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+	.steps-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+	.faq-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+	.lg-hero h1 { font-size: 2rem; }
+	.why-grid { grid-template-columns: 1fr; }
+	.hero-stats { gap: 1.5rem; }
+}
+</style>
